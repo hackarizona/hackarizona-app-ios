@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3EAF8311F81FDED0095F5EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAF8301F81FDED0095F5EC /* AppDelegate.swift */; };
+		C3EAF8331F81FDED0095F5EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAF8321F81FDED0095F5EC /* ViewController.swift */; };
+		C3EAF8361F81FDED0095F5EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3EAF8341F81FDED0095F5EC /* Main.storyboard */; };
+		C3EAF8381F81FDED0095F5EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3EAF8371F81FDED0095F5EC /* Assets.xcassets */; };
+		C3EAF83B1F81FDED0095F5EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3EAF8391F81FDED0095F5EC /* LaunchScreen.storyboard */; };
+		C3EAF8461F81FDED0095F5EC /* Hack_AZTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAF8451F81FDED0095F5EC /* Hack_AZTests.swift */; };
+		C3EAF8511F81FDED0095F5EC /* Hack_AZUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAF8501F81FDED0095F5EC /* Hack_AZUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3EAF8421F81FDED0095F5EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3EAF8251F81FDED0095F5EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3EAF82C1F81FDED0095F5EC;
+			remoteInfo = "Hack AZ";
+		};
+		C3EAF84D1F81FDED0095F5EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3EAF8251F81FDED0095F5EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3EAF82C1F81FDED0095F5EC;
+			remoteInfo = "Hack AZ";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C3EAF82D1F81FDED0095F5EC /* Hack AZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hack AZ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3EAF8301F81FDED0095F5EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C3EAF8321F81FDED0095F5EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C3EAF8351F81FDED0095F5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C3EAF8371F81FDED0095F5EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3EAF83A1F81FDED0095F5EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C3EAF83C1F81FDED0095F5EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3EAF8411F81FDED0095F5EC /* Hack AZTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hack AZTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3EAF8451F81FDED0095F5EC /* Hack_AZTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hack_AZTests.swift; sourceTree = "<group>"; };
+		C3EAF8471F81FDED0095F5EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3EAF84C1F81FDED0095F5EC /* Hack AZUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hack AZUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3EAF8501F81FDED0095F5EC /* Hack_AZUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hack_AZUITests.swift; sourceTree = "<group>"; };
+		C3EAF8521F81FDED0095F5EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3EAF82A1F81FDED0095F5EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3EAF83E1F81FDED0095F5EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3EAF8491F81FDED0095F5EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C3EAF8241F81FDED0095F5EC = {
+			isa = PBXGroup;
+			children = (
+				C3EAF82F1F81FDED0095F5EC /* Hack AZ */,
+				C3EAF8441F81FDED0095F5EC /* Hack AZTests */,
+				C3EAF84F1F81FDED0095F5EC /* Hack AZUITests */,
+				C3EAF82E1F81FDED0095F5EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C3EAF82E1F81FDED0095F5EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3EAF82D1F81FDED0095F5EC /* Hack AZ.app */,
+				C3EAF8411F81FDED0095F5EC /* Hack AZTests.xctest */,
+				C3EAF84C1F81FDED0095F5EC /* Hack AZUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3EAF82F1F81FDED0095F5EC /* Hack AZ */ = {
+			isa = PBXGroup;
+			children = (
+				C3EAF8301F81FDED0095F5EC /* AppDelegate.swift */,
+				C3EAF8321F81FDED0095F5EC /* ViewController.swift */,
+				C3EAF8341F81FDED0095F5EC /* Main.storyboard */,
+				C3EAF8371F81FDED0095F5EC /* Assets.xcassets */,
+				C3EAF8391F81FDED0095F5EC /* LaunchScreen.storyboard */,
+				C3EAF83C1F81FDED0095F5EC /* Info.plist */,
+			);
+			path = "Hack AZ";
+			sourceTree = "<group>";
+		};
+		C3EAF8441F81FDED0095F5EC /* Hack AZTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3EAF8451F81FDED0095F5EC /* Hack_AZTests.swift */,
+				C3EAF8471F81FDED0095F5EC /* Info.plist */,
+			);
+			path = "Hack AZTests";
+			sourceTree = "<group>";
+		};
+		C3EAF84F1F81FDED0095F5EC /* Hack AZUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C3EAF8501F81FDED0095F5EC /* Hack_AZUITests.swift */,
+				C3EAF8521F81FDED0095F5EC /* Info.plist */,
+			);
+			path = "Hack AZUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3EAF82C1F81FDED0095F5EC /* Hack AZ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3EAF8551F81FDED0095F5EC /* Build configuration list for PBXNativeTarget "Hack AZ" */;
+			buildPhases = (
+				C3EAF8291F81FDED0095F5EC /* Sources */,
+				C3EAF82A1F81FDED0095F5EC /* Frameworks */,
+				C3EAF82B1F81FDED0095F5EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hack AZ";
+			productName = "Hack AZ";
+			productReference = C3EAF82D1F81FDED0095F5EC /* Hack AZ.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3EAF8401F81FDED0095F5EC /* Hack AZTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3EAF8581F81FDED0095F5EC /* Build configuration list for PBXNativeTarget "Hack AZTests" */;
+			buildPhases = (
+				C3EAF83D1F81FDED0095F5EC /* Sources */,
+				C3EAF83E1F81FDED0095F5EC /* Frameworks */,
+				C3EAF83F1F81FDED0095F5EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3EAF8431F81FDED0095F5EC /* PBXTargetDependency */,
+			);
+			name = "Hack AZTests";
+			productName = "Hack AZTests";
+			productReference = C3EAF8411F81FDED0095F5EC /* Hack AZTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C3EAF84B1F81FDED0095F5EC /* Hack AZUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3EAF85B1F81FDED0095F5EC /* Build configuration list for PBXNativeTarget "Hack AZUITests" */;
+			buildPhases = (
+				C3EAF8481F81FDED0095F5EC /* Sources */,
+				C3EAF8491F81FDED0095F5EC /* Frameworks */,
+				C3EAF84A1F81FDED0095F5EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3EAF84E1F81FDED0095F5EC /* PBXTargetDependency */,
+			);
+			name = "Hack AZUITests";
+			productName = "Hack AZUITests";
+			productReference = C3EAF84C1F81FDED0095F5EC /* Hack AZUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3EAF8251F81FDED0095F5EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Cody Deeran";
+				TargetAttributes = {
+					C3EAF82C1F81FDED0095F5EC = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					C3EAF8401F81FDED0095F5EC = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C3EAF82C1F81FDED0095F5EC;
+					};
+					C3EAF84B1F81FDED0095F5EC = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C3EAF82C1F81FDED0095F5EC;
+					};
+				};
+			};
+			buildConfigurationList = C3EAF8281F81FDED0095F5EC /* Build configuration list for PBXProject "Hack AZ" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C3EAF8241F81FDED0095F5EC;
+			productRefGroup = C3EAF82E1F81FDED0095F5EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3EAF82C1F81FDED0095F5EC /* Hack AZ */,
+				C3EAF8401F81FDED0095F5EC /* Hack AZTests */,
+				C3EAF84B1F81FDED0095F5EC /* Hack AZUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3EAF82B1F81FDED0095F5EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3EAF83B1F81FDED0095F5EC /* LaunchScreen.storyboard in Resources */,
+				C3EAF8381F81FDED0095F5EC /* Assets.xcassets in Resources */,
+				C3EAF8361F81FDED0095F5EC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3EAF83F1F81FDED0095F5EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3EAF84A1F81FDED0095F5EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3EAF8291F81FDED0095F5EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3EAF8331F81FDED0095F5EC /* ViewController.swift in Sources */,
+				C3EAF8311F81FDED0095F5EC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3EAF83D1F81FDED0095F5EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3EAF8461F81FDED0095F5EC /* Hack_AZTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3EAF8481F81FDED0095F5EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3EAF8511F81FDED0095F5EC /* Hack_AZUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3EAF8431F81FDED0095F5EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3EAF82C1F81FDED0095F5EC /* Hack AZ */;
+			targetProxy = C3EAF8421F81FDED0095F5EC /* PBXContainerItemProxy */;
+		};
+		C3EAF84E1F81FDED0095F5EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3EAF82C1F81FDED0095F5EC /* Hack AZ */;
+			targetProxy = C3EAF84D1F81FDED0095F5EC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3EAF8341F81FDED0095F5EC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3EAF8351F81FDED0095F5EC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C3EAF8391F81FDED0095F5EC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3EAF83A1F81FDED0095F5EC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3EAF8531F81FDED0095F5EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C3EAF8541F81FDED0095F5EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C3EAF8561F81FDED0095F5EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJNB9X4TGY;
+				INFOPLIST_FILE = "Hack AZ/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codydeeran.Hack-AZ";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3EAF8571F81FDED0095F5EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJNB9X4TGY;
+				INFOPLIST_FILE = "Hack AZ/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codydeeran.Hack-AZ";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C3EAF8591F81FDED0095F5EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJNB9X4TGY;
+				INFOPLIST_FILE = "Hack AZTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codydeeran.Hack-AZTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hack AZ.app/Hack AZ";
+			};
+			name = Debug;
+		};
+		C3EAF85A1F81FDED0095F5EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJNB9X4TGY;
+				INFOPLIST_FILE = "Hack AZTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codydeeran.Hack-AZTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hack AZ.app/Hack AZ";
+			};
+			name = Release;
+		};
+		C3EAF85C1F81FDED0095F5EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJNB9X4TGY;
+				INFOPLIST_FILE = "Hack AZUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codydeeran.Hack-AZUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Hack AZ";
+			};
+			name = Debug;
+		};
+		C3EAF85D1F81FDED0095F5EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJNB9X4TGY;
+				INFOPLIST_FILE = "Hack AZUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codydeeran.Hack-AZUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Hack AZ";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3EAF8281F81FDED0095F5EC /* Build configuration list for PBXProject "Hack AZ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3EAF8531F81FDED0095F5EC /* Debug */,
+				C3EAF8541F81FDED0095F5EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3EAF8551F81FDED0095F5EC /* Build configuration list for PBXNativeTarget "Hack AZ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3EAF8561F81FDED0095F5EC /* Debug */,
+				C3EAF8571F81FDED0095F5EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3EAF8581F81FDED0095F5EC /* Build configuration list for PBXNativeTarget "Hack AZTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3EAF8591F81FDED0095F5EC /* Debug */,
+				C3EAF85A1F81FDED0095F5EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3EAF85B1F81FDED0095F5EC /* Build configuration list for PBXNativeTarget "Hack AZUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3EAF85C1F81FDED0095F5EC /* Debug */,
+				C3EAF85D1F81FDED0095F5EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3EAF8251F81FDED0095F5EC /* Project object */;
+}
