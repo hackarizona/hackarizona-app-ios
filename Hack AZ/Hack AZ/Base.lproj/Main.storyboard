@@ -17,9 +17,33 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="hack_az_app_banner.png" id="bOO-Ko-ui8">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="126"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="166"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="M31-eR-hP2">
+                            <rect key="frame" x="0.0" y="26" width="375" height="162"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="raytheon_sponsor_logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="2OK-mo-o0m">
+                                    <rect key="frame" x="6" y="18" width="363" height="105"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0cX-Tx-XIM">
+                                    <rect key="frame" x="0.0" y="123" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <items>
+                                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Ovc-QK-dM6"/>
+                                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="d6I-Fh-332"/>
+                                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="h08-Rt-bVi"/>
+                                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="eaP-Vw-F8E"/>
+                                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="J0r-GU-IXZ"/>
+                                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="VqA-5k-8zp"/>
+                                        <barButtonItem title="Preferences" id="uPW-t4-c3l"/>
+                                    </items>
+                                </toolbar>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCell" rowHeight="-39" id="Wmp-ch-wYH">
                                 <rect key="frame" x="0.0" y="227" width="375" height="44"/>
@@ -43,5 +67,6 @@
     </scenes>
     <resources>
         <image name="hack_az_app_banner.png" width="627" height="245"/>
+        <image name="raytheon_sponsor_logo.jpg" width="416" height="416"/>
     </resources>
 </document>
