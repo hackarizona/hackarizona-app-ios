@@ -1,19 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Arial.ttf">
+            <string>ArialMT</string>
+        </array>
+        <array key="ArialBold.ttf">
+            <string>Arial-BoldMT</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hack_AZ" customModuleProvider="target" sceneMemberID="viewController"/>
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Hack_AZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="s1f-OH-dEh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.25878161189999999" green="0.2703243494" blue="0.46900701519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HackAZAppHeader1 copy.png" id="YYS-wJ-w7H">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="171"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Jz9-fQ-Pl0">
+                            <rect key="frame" x="0.0" y="243" width="414" height="167"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RAYTHEON" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXB-Kv-3nB">
+                                    <rect key="frame" x="27.666666666666657" y="43" width="359" height="54"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="359" id="J8l-16-AWi"/>
+                                        <constraint firstAttribute="height" constant="54" id="dLx-Lb-uTR"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="55"/>
+                                    <color key="textColor" red="1" green="0.165688535" blue="0.1209438781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPONSORED BY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Xf-LP-5Hs">
+                                    <rect key="frame" x="112.66666666666669" y="8" width="189" height="27"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="189" id="TVA-2N-2Hc"/>
+                                        <constraint firstAttribute="height" constant="27" id="cBR-p8-ot3"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vmK-tm-3Y8">
+                                    <rect key="frame" x="0.0" y="123" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <items>
+                                        <barButtonItem style="plain" systemItem="flexibleSpace" id="vXi-rG-xJ1"/>
+                                        <barButtonItem title="Preferences" id="qSs-hs-lDE">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </barButtonItem>
+                                    </items>
+                                    <color key="barTintColor" red="0.25878161189999999" green="0.2703243494" blue="0.46900701519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </toolbar>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="jXB-Kv-3nB" firstAttribute="centerX" secondItem="Jz9-fQ-Pl0" secondAttribute="centerX" id="98l-VM-ZPi"/>
+                                <constraint firstItem="jXB-Kv-3nB" firstAttribute="centerX" secondItem="Jz9-fQ-Pl0" secondAttribute="centerX" id="Fzj-Ha-oYj"/>
+                                <constraint firstItem="jXB-Kv-3nB" firstAttribute="centerY" secondItem="Jz9-fQ-Pl0" secondAttribute="centerY" constant="-13.5" id="Lhf-ss-zU9"/>
+                                <constraint firstItem="jXB-Kv-3nB" firstAttribute="centerY" secondItem="Jz9-fQ-Pl0" secondAttribute="centerY" constant="-13.5" id="MG0-Wd-s39"/>
+                                <constraint firstItem="jXB-Kv-3nB" firstAttribute="top" secondItem="7Xf-LP-5Hs" secondAttribute="bottom" constant="8" id="OUH-SZ-VqU"/>
+                                <constraint firstItem="7Xf-LP-5Hs" firstAttribute="centerX" secondItem="Jz9-fQ-Pl0" secondAttribute="centerX" id="v9g-sY-jdO"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCell" id="rj0-jB-gp6">
+                                <rect key="frame" x="0.0" y="199" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rj0-jB-gp6" id="zNG-Af-u8g">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="uKC-aV-llj" kind="show" identifier="ScheduleViewController" id="iOa-Sc-dr5"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BYZ-38-t0r" id="l3J-7j-NNu"/>
+                            <outlet property="delegate" destination="BYZ-38-t0r" id="gdv-Ee-w7T"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="V3Z-kh-WDd"/>
+                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98.400000000000006" y="118.29085457271366"/>
+            <point key="canvasLocation" x="418.84057971014494" y="115.7608695652174"/>
+        </scene>
+        <!--Schedule View Controller-->
+        <scene sceneID="l5W-VB-v17">
+            <objects>
+                <viewController storyboardIdentifier="ScheduleViewController" id="uKC-aV-llj" customClass="ScheduleViewController" customModule="Hack_AZ" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="NKX-VE-L8d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.64313725489999995" green="0.49019607840000001" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.64313725489999995" green="0.49019607840000001" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="qJc-YL-360">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lUm-dg-Pu0">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="414" id="U9e-wW-2Om"/>
+                                        <constraint firstAttribute="height" constant="44" id="uyo-u7-fpE"/>
+                                    </constraints>
+                                    <items>
+                                        <barButtonItem title="&lt; BACK" id="Drn-Gg-cxM">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <segue destination="BYZ-38-t0r" kind="show" id="hn2-Yu-cnl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </items>
+                                    <color key="barTintColor" red="0.64313725489999995" green="0.49019607840000001" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </toolbar>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCHEDULE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8V-jw-XZE">
+                                    <rect key="frame" x="142" y="70" width="131" height="27"/>
+                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="24"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.64313725489999995" green="0.49019607840000001" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="lUm-dg-Pu0" secondAttribute="trailing" id="129-hX-lHp"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="top" secondItem="qJc-YL-360" secondAttribute="top" id="5lB-Du-8hj"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="leading" secondItem="qJc-YL-360" secondAttribute="leading" id="AD7-tq-j4f"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="centerX" secondItem="Z8V-jw-XZE" secondAttribute="centerX" id="GcA-iB-Y3E"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="leading" secondItem="qJc-YL-360" secondAttribute="leading" id="Hht-sx-txh"/>
+                                <constraint firstItem="Z8V-jw-XZE" firstAttribute="centerX" secondItem="qJc-YL-360" secondAttribute="centerX" id="IeM-nv-Qw4"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="leading" secondItem="qJc-YL-360" secondAttribute="leading" id="Nz4-gm-Xqf"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="centerX" secondItem="qJc-YL-360" secondAttribute="centerX" id="RKa-8N-JIi"/>
+                                <constraint firstItem="Z8V-jw-XZE" firstAttribute="top" secondItem="lUm-dg-Pu0" secondAttribute="bottom" constant="26" id="Rzj-Xt-c9q"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="leading" secondItem="qJc-YL-360" secondAttribute="leading" id="S3Z-cI-N0L"/>
+                                <constraint firstAttribute="trailing" secondItem="lUm-dg-Pu0" secondAttribute="trailing" id="WxD-rd-oOt"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="top" secondItem="qJc-YL-360" secondAttribute="top" id="bU5-QQ-Wpg"/>
+                                <constraint firstItem="Z8V-jw-XZE" firstAttribute="top" secondItem="lUm-dg-Pu0" secondAttribute="bottom" constant="26" id="be3-LG-3hR"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="top" secondItem="qJc-YL-360" secondAttribute="top" id="dgJ-Xj-5Yq"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="top" secondItem="qJc-YL-360" secondAttribute="top" id="n39-zr-AC7"/>
+                                <constraint firstItem="lUm-dg-Pu0" firstAttribute="bottom" secondItem="Z8V-jw-XZE" secondAttribute="top" constant="-26" id="yvN-PY-aVF"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="scheduleCells" id="WKY-go-UZS">
+                                <rect key="frame" x="0.0" y="181.33333333333334" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WKY-go-UZS" id="7v2-gT-6m3">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="uKC-aV-llj" id="FDQ-Vj-gse"/>
+                            <outlet property="delegate" destination="uKC-aV-llj" id="ESv-5d-6CW"/>
+                        </connections>
+                    </tableView>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NP3-rR-HOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221.7391304347827" y="112.50000000000001"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HackAZAppHeader1 copy.png" width="640" height="260"/>
+    </resources>
 </document>
