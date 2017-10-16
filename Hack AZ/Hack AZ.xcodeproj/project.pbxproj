@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C306639F1F86CC4D00302E7D /* HackAZAppHeader1 copy.png in Resources */ = {isa = PBXBuildFile; fileRef = C306639E1F86CC4D00302E7D /* HackAZAppHeader1 copy.png */; };
 		C31D84DD1F85F8FC00CFA774 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */; };
-		C34F24091F84ACB200DBF3A1 /* hack_az_app_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = C34F24081F84ACB200DBF3A1 /* hack_az_app_banner.png */; };
-		C34F240C1F84B80F00DBF3A1 /* raytheon_sponsor_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C34F240B1F84B80F00DBF3A1 /* raytheon_sponsor_logo.jpg */; };
+		C330A10A1F8C7BF9009CD033 /* hack_az_white_circle_header.png in Resources */ = {isa = PBXBuildFile; fileRef = C330A1091F8C7BF9009CD033 /* hack_az_white_circle_header.png */; };
+		C330A10C1F8C8173009CD033 /* hack_az_white_banner1.png in Resources */ = {isa = PBXBuildFile; fileRef = C330A10B1F8C8173009CD033 /* hack_az_white_banner1.png */; };
+		C39D00C11F8742AC00D5ADDA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39D00C01F8742AC00D5ADDA /* MapViewController.swift */; };
+		C39D00C71F87486500D5ADDA /* sel_floor5.png in Resources */ = {isa = PBXBuildFile; fileRef = C39D00C21F87486000D5ADDA /* sel_floor5.png */; };
+		C39D00C81F87486500D5ADDA /* sel_floor1.png in Resources */ = {isa = PBXBuildFile; fileRef = C39D00C31F87486100D5ADDA /* sel_floor1.png */; };
+		C39D00C91F87486500D5ADDA /* sel_floor4.png in Resources */ = {isa = PBXBuildFile; fileRef = C39D00C41F87486200D5ADDA /* sel_floor4.png */; };
+		C39D00CA1F87486500D5ADDA /* sel_floor3.png in Resources */ = {isa = PBXBuildFile; fileRef = C39D00C51F87486300D5ADDA /* sel_floor3.png */; };
+		C39D00CB1F87486500D5ADDA /* sel_floor2.png in Resources */ = {isa = PBXBuildFile; fileRef = C39D00C61F87486400D5ADDA /* sel_floor2.png */; };
 		C3EAF8311F81FDED0095F5EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAF8301F81FDED0095F5EC /* AppDelegate.swift */; };
 		C3EAF8331F81FDED0095F5EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAF8321F81FDED0095F5EC /* ViewController.swift */; };
 		C3EAF8361F81FDED0095F5EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3EAF8341F81FDED0095F5EC /* Main.storyboard */; };
@@ -38,11 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C306639E1F86CC4D00302E7D /* HackAZAppHeader1 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "HackAZAppHeader1 copy.png"; path = "../../../../../../Dropbox/hack_az_icons/HackAZAppHeader1 copy.png"; sourceTree = "<group>"; };
 		C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
-		C34F24071F84AB9E00DBF3A1 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AppIcon.appiconset; path = ../../../../../Dropbox/hack_az_icons/hack_az_app_icons_black/ios/AppIcon.appiconset; sourceTree = "<group>"; };
-		C34F24081F84ACB200DBF3A1 /* hack_az_app_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hack_az_app_banner.png; path = ../../../../../../Dropbox/hack_az_icons/hack_az_app_banner.png; sourceTree = "<group>"; };
-		C34F240B1F84B80F00DBF3A1 /* raytheon_sponsor_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = raytheon_sponsor_logo.jpg; path = ../../../../../../Dropbox/hack_az_icons/raytheon_sponsor_logo.jpg; sourceTree = "<group>"; };
+		C330A1091F8C7BF9009CD033 /* hack_az_white_circle_header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hack_az_white_circle_header.png; path = ../../../../../../Dropbox/hack_az/hack_az_icons/hack_az_white_circle_header.png; sourceTree = "<group>"; };
+		C330A10B1F8C8173009CD033 /* hack_az_white_banner1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hack_az_white_banner1.png; path = ../../../../../../Dropbox/hack_az/hack_az_icons/hack_az_white_banner1.png; sourceTree = "<group>"; };
+		C39D00C01F8742AC00D5ADDA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C39D00C21F87486000D5ADDA /* sel_floor5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sel_floor5.png; path = ../../../../../../Dropbox/hack_az/map_pics/sel_floor5.png; sourceTree = "<group>"; };
+		C39D00C31F87486100D5ADDA /* sel_floor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sel_floor1.png; path = ../../../../../../Dropbox/hack_az/map_pics/sel_floor1.png; sourceTree = "<group>"; };
+		C39D00C41F87486200D5ADDA /* sel_floor4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sel_floor4.png; path = ../../../../../../Dropbox/hack_az/map_pics/sel_floor4.png; sourceTree = "<group>"; };
+		C39D00C51F87486300D5ADDA /* sel_floor3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sel_floor3.png; path = ../../../../../../Dropbox/hack_az/map_pics/sel_floor3.png; sourceTree = "<group>"; };
+		C39D00C61F87486400D5ADDA /* sel_floor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sel_floor2.png; path = ../../../../../../Dropbox/hack_az/map_pics/sel_floor2.png; sourceTree = "<group>"; };
 		C3EAF82D1F81FDED0095F5EC /* Hack AZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hack AZ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EAF8301F81FDED0095F5EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3EAF8321F81FDED0095F5EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,9 +95,13 @@
 		C34F24061F84A66A00DBF3A1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C306639E1F86CC4D00302E7D /* HackAZAppHeader1 copy.png */,
-				C34F240B1F84B80F00DBF3A1 /* raytheon_sponsor_logo.jpg */,
-				C34F24081F84ACB200DBF3A1 /* hack_az_app_banner.png */,
+				C330A10B1F8C8173009CD033 /* hack_az_white_banner1.png */,
+				C330A1091F8C7BF9009CD033 /* hack_az_white_circle_header.png */,
+				C39D00C31F87486100D5ADDA /* sel_floor1.png */,
+				C39D00C61F87486400D5ADDA /* sel_floor2.png */,
+				C39D00C51F87486300D5ADDA /* sel_floor3.png */,
+				C39D00C41F87486200D5ADDA /* sel_floor4.png */,
+				C39D00C21F87486000D5ADDA /* sel_floor5.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -120,9 +133,9 @@
 				C3EAF8301F81FDED0095F5EC /* AppDelegate.swift */,
 				C3EAF8321F81FDED0095F5EC /* ViewController.swift */,
 				C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */,
+				C39D00C01F8742AC00D5ADDA /* MapViewController.swift */,
 				C3EAF8341F81FDED0095F5EC /* Main.storyboard */,
 				C3EAF8371F81FDED0095F5EC /* Assets.xcassets */,
-				C34F24071F84AB9E00DBF3A1 /* AppIcon.appiconset */,
 				C3EAF8391F81FDED0095F5EC /* LaunchScreen.storyboard */,
 				C3EAF83C1F81FDED0095F5EC /* Info.plist */,
 			);
@@ -254,12 +267,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C34F240C1F84B80F00DBF3A1 /* raytheon_sponsor_logo.jpg in Resources */,
+				C39D00CB1F87486500D5ADDA /* sel_floor2.png in Resources */,
+				C330A10C1F8C8173009CD033 /* hack_az_white_banner1.png in Resources */,
+				C39D00C71F87486500D5ADDA /* sel_floor5.png in Resources */,
 				C3EAF83B1F81FDED0095F5EC /* LaunchScreen.storyboard in Resources */,
-				C306639F1F86CC4D00302E7D /* HackAZAppHeader1 copy.png in Resources */,
+				C39D00C91F87486500D5ADDA /* sel_floor4.png in Resources */,
+				C39D00CA1F87486500D5ADDA /* sel_floor3.png in Resources */,
+				C330A10A1F8C7BF9009CD033 /* hack_az_white_circle_header.png in Resources */,
 				C3EAF8381F81FDED0095F5EC /* Assets.xcassets in Resources */,
 				C3EAF8361F81FDED0095F5EC /* Main.storyboard in Resources */,
-				C34F24091F84ACB200DBF3A1 /* hack_az_app_banner.png in Resources */,
+				C39D00C81F87486500D5ADDA /* sel_floor1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +304,7 @@
 				C31D84DD1F85F8FC00CFA774 /* ScheduleViewController.swift in Sources */,
 				C3EAF8331F81FDED0095F5EC /* ViewController.swift in Sources */,
 				C3EAF8311F81FDED0095F5EC /* AppDelegate.swift in Sources */,
+				C39D00C11F8742AC00D5ADDA /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
