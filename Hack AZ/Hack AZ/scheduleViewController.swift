@@ -16,25 +16,21 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         return cellContent.count
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        let rowPressed = indexPath.row
-//        let cellPressed = tableView.cellForRow(at: indexPath)
-//        if rowPressed == 0{
-//            print("Schedule was pressed! Starting segue....")
-//            performSegue(withIdentifier: "ScheduleViewController", sender: cellPressed)
-//        }else if rowPressed == 1 {
-//            print("row 1 was pressed!")
-//        }else if rowPressed == 2 {
-//            print("row 2 was pressed!")
-//        }else if rowPressed == 3 {
-//            print("row 3 was pressed!")
-//        }else if rowPressed == 4 {
-//            print("row 4 was pressed!")
-//        }else if rowPressed == 5 {
-//            print("row 5 was pressed!")
-//        }
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let rowPressed = indexPath.row
+        let cellPressed = tableView.cellForRow(at: indexPath)
+        if rowPressed == 0{
+            print("Friday was pressed! Starting segue....")
+            performSegue(withIdentifier: "viewFridayScheduleSegue", sender: cellPressed)
+        }else if rowPressed == 1 {
+            print("Saturday was pressed! Starting segue....")
+            performSegue(withIdentifier: "viewSaturdayScheduleSegue", sender: cellPressed)
+        }else if rowPressed == 2 {
+            print("Saturday was pressed! Starting segue....")
+            performSegue(withIdentifier: "viewSundayScheduleSegue", sender: cellPressed)
+        }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
