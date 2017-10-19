@@ -16,6 +16,7 @@
 		C39D00C91F87486500D5ADDA /* sel_floor4.png in Resources */ = {isa = PBXBuildFile; fileRef = C39D00C41F87486200D5ADDA /* sel_floor4.png */; };
 		C39D00CA1F87486500D5ADDA /* sel_floor3.png in Resources */ = {isa = PBXBuildFile; fileRef = C39D00C51F87486300D5ADDA /* sel_floor3.png */; };
 		C39D00CB1F87486500D5ADDA /* sel_floor2.png in Resources */ = {isa = PBXBuildFile; fileRef = C39D00C61F87486400D5ADDA /* sel_floor2.png */; };
+		C3E0B1D01F986F1400EBEA05 /* DisplayHackArizonaSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E0B1CF1F986F1400EBEA05 /* DisplayHackArizonaSchedule.swift */; };
 		C3EAF8311F81FDED0095F5EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAF8301F81FDED0095F5EC /* AppDelegate.swift */; };
 		C3EAF8331F81FDED0095F5EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAF8321F81FDED0095F5EC /* ViewController.swift */; };
 		C3EAF8361F81FDED0095F5EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3EAF8341F81FDED0095F5EC /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		C39D00C41F87486200D5ADDA /* sel_floor4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sel_floor4.png; path = ../../../../../../Dropbox/hack_az/map_pics/sel_floor4.png; sourceTree = "<group>"; };
 		C39D00C51F87486300D5ADDA /* sel_floor3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sel_floor3.png; path = ../../../../../../Dropbox/hack_az/map_pics/sel_floor3.png; sourceTree = "<group>"; };
 		C39D00C61F87486400D5ADDA /* sel_floor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sel_floor2.png; path = ../../../../../../Dropbox/hack_az/map_pics/sel_floor2.png; sourceTree = "<group>"; };
+		C3E0B1CF1F986F1400EBEA05 /* DisplayHackArizonaSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayHackArizonaSchedule.swift; sourceTree = "<group>"; };
 		C3EAF82D1F81FDED0095F5EC /* Hack AZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hack AZ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EAF8301F81FDED0095F5EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3EAF8321F81FDED0095F5EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				C3EAF8321F81FDED0095F5EC /* ViewController.swift */,
 				C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */,
 				C39D00C01F8742AC00D5ADDA /* MapViewController.swift */,
+				C3E0B1CF1F986F1400EBEA05 /* DisplayHackArizonaSchedule.swift */,
 				C3EAF8341F81FDED0095F5EC /* Main.storyboard */,
 				C3EAF8371F81FDED0095F5EC /* Assets.xcassets */,
 				C3EAF8391F81FDED0095F5EC /* LaunchScreen.storyboard */,
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3E0B1D01F986F1400EBEA05 /* DisplayHackArizonaSchedule.swift in Sources */,
 				C31D84DD1F85F8FC00CFA774 /* ScheduleViewController.swift in Sources */,
 				C3EAF8331F81FDED0095F5EC /* ViewController.swift in Sources */,
 				C3EAF8311F81FDED0095F5EC /* AppDelegate.swift in Sources */,
