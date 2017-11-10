@@ -15,30 +15,60 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
         let cellPressed = tableView.cellForRow(at: indexPath)
+        let alert = UIAlertController(title: "Loading...", message: "", preferredStyle: .alert)
         if rowPressed == 0{
             print("Friday was pressed! Starting segue....")
-            performSegue(withIdentifier: "viewFridayScheduleSegue", sender: cellPressed)
+            self.present(alert, animated: true, completion: nil)
+            let dismissAlert = DispatchTime.now() + 0.5
+            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
+                // Your code with delay
+                self.dismiss(animated: true, completion: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    // Your code with delay
+                    self.performSegue(withIdentifier: "viewFridayScheduleSegue", sender: cellPressed)
+                }
+            }
         }else if rowPressed == 1 {
             print("Saturday was pressed! Starting segue....")
-            performSegue(withIdentifier: "viewSaturdayScheduleSegue", sender: cellPressed)
+            self.present(alert, animated: true, completion: nil)
+            let dismissAlert = DispatchTime.now() + 0.5
+            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
+                // Your code with delay
+                self.dismiss(animated: true, completion: nil)
+                let deploySeg = DispatchTime.now() + 0.5
+                DispatchQueue.main.asyncAfter(deadline: deploySeg) {
+                    // Your code with delay
+                    self.performSegue(withIdentifier: "viewSaturdayScheduleSegue", sender: cellPressed)
+                }
+            }
         }else if rowPressed == 2 {
             print("Saturday was pressed! Starting segue....")
-            performSegue(withIdentifier: "viewSundayScheduleSegue", sender: cellPressed)
+            self.present(alert, animated: true, completion: nil)
+            let dismissAlert = DispatchTime.now() + 0.5
+            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
+                // Your code with delay
+                self.dismiss(animated: true, completion: nil)
+                let deploySeg = DispatchTime.now() + 0.5
+                DispatchQueue.main.asyncAfter(deadline: deploySeg) {
+                    // Your code with delay
+                    self.performSegue(withIdentifier: "viewSundayScheduleSegue", sender: cellPressed)
+                }
+            }
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
-        cell.contentView.backgroundColor = UIColor.white
-        cell.textLabel?.textColor = UIColor(red: CGFloat(67)/255.0, green: CGFloat(73)/255.0, blue: CGFloat(116)/255.0, alpha: 1.0)
+        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
+        cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = cellContent[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+        cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         return cell
         
     }
