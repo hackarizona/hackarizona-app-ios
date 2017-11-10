@@ -21,9 +21,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
         let cellPressed = tableView.cellForRow(at: indexPath)
+        let alert = UIAlertController(title: "Loading...", message: "", preferredStyle: .alert)
         if rowPressed == 0{
             print("Schedule was pressed! Starting segue....")
-            performSegue(withIdentifier: "ScheduleViewController", sender: cellPressed)
+            self.present(alert, animated: true, completion: nil)
+            let dismissAlert = DispatchTime.now() + 0.5
+            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
+                // Your code with delay
+                self.dismiss(animated: true, completion: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    // Your code with delay
+                    self.performSegue(withIdentifier: "ScheduleViewController", sender: cellPressed)
+                }
+            }
         }else if rowPressed == 1 {
             print("Map was pressed! Starting segue....")
             performSegue(withIdentifier: "MapSegue", sender: cellPressed)
@@ -37,6 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("row 4 was pressed!")
         }else if rowPressed == 5 {
             print("row 5 was pressed!")
+            performSegue(withIdentifier: "ViewSponsors", sender: cellPressed)
         }
     }
     

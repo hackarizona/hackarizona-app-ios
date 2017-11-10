@@ -73,9 +73,14 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
         cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = activityName[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Arial", size:20.0)
-        cell.detailTextLabel?.text = "Time: " + activityTime[indexPath.row] + " Location: " + activityLocation[indexPath.row]
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+        cell.detailTextLabel?.numberOfLines = 0
+        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cell.detailTextLabel?.text = "Time: " + activityTime[indexPath.row] + "\n Location: " + activityLocation[indexPath.row]
         cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
+        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(164)/255.0, green: CGFloat(125)/255.0, blue: CGFloat(196)/255.0, alpha: 1.0)
         
         return cell
     }

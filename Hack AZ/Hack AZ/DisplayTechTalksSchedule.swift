@@ -80,7 +80,9 @@ class DisplayTechTalksSchedule: UIViewController, UITableViewDelegate, UITableVi
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
-        cell.detailTextLabel?.text = "Time: " + talkTime[indexPath.row] + " Location: " + talkLocation[indexPath.row]
+        cell.detailTextLabel?.numberOfLines = 0
+        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cell.detailTextLabel?.text = "Time: " + talkTime[indexPath.row] + "\n Location: " + talkLocation[indexPath.row]
         cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
         cell.detailTextLabel?.textColor = UIColor(red: CGFloat(164)/255.0, green: CGFloat(125)/255.0, blue: CGFloat(196)/255.0, alpha: 1.0)
         

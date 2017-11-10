@@ -10,71 +10,94 @@ import UIKit
 
 class ScheduleViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let cellContent = ["Friday","Saturday","Sunday"]
+//    let cellContent = ["Friday","Saturday","Sunday"]
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellContent.count
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let rowPressed = indexPath.row
-        let cellPressed = tableView.cellForRow(at: indexPath)
-        let alert = UIAlertController(title: "Loading...", message: "", preferredStyle: .alert)
-        if rowPressed == 0{
-            print("Friday was pressed! Starting segue....")
-            self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
-            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    // Your code with delay
-                    self.performSegue(withIdentifier: "viewFridayScheduleSegue", sender: cellPressed)
-                }
-            }
-        }else if rowPressed == 1 {
-            print("Saturday was pressed! Starting segue....")
-            self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
-            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
-                let deploySeg = DispatchTime.now() + 0.5
-                DispatchQueue.main.asyncAfter(deadline: deploySeg) {
-                    // Your code with delay
-                    self.performSegue(withIdentifier: "viewSaturdayScheduleSegue", sender: cellPressed)
-                }
-            }
-        }else if rowPressed == 2 {
-            print("Saturday was pressed! Starting segue....")
-            self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
-            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
-                let deploySeg = DispatchTime.now() + 0.5
-                DispatchQueue.main.asyncAfter(deadline: deploySeg) {
-                    // Your code with delay
-                    self.performSegue(withIdentifier: "viewSundayScheduleSegue", sender: cellPressed)
+    var eventType = [String]()
+    var eventTitle = [String]()
+    var eventSubTitle = [String]()
+    var day = [String]()
+    var time = [String]()
+    var location = [String]()
+    let url = URL(string: "http://hackarizona.org/2017/masterschedule2017.json")!
+    
+    func getEventData() -> Void{
+        // Setup the url for hackAZ
+        let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+            if error != nil {
+                print(error!)
+            }else{
+                if let urlContent = data {
+                    do {
+                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options:JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
+                        if let jsonData = (jsonResult!["schedule"] as? NSArray) {
+                            for index in 0...(jsonData.count-1) {
+                                self.eventType.append((jsonData[index] as? NSDictionary)?["eventtype"] as! String)
+                                self.eventTitle.append((jsonData[index] as? NSDictionary)?["eventtitle"] as! String)
+                                self.eventSubTitle.append((jsonData[index] as? NSDictionary)?["subtitle"] as! String)
+                                self.day.append((jsonData[index] as? NSDictionary)?["day"] as! String)
+                                self.time.append((jsonData[index] as? NSDictionary)?["time"] as! String)
+                                self.location.append((jsonData[index] as? NSDictionary)?["location"] as! String)
+                            }
+                        }
+                    } catch {
+                        print("JSON Processing Failed!")
+                    }
                 }
             }
         }
+        task.resume()
     }
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return eventType.count
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
+    
+        let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "mainCell")
         cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
         cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = cellContent[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        if eventType[indexPath.row] == "required" {
+            cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{1F534}" + "\t " +  eventTitle[indexPath.row]
+            if eventSubTitle[indexPath.row] != "" {
+                cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{1F534}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
+            }
+        }
+        if eventType[indexPath.row] == "food"{
+            cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{26AB}" + "\t " +  eventTitle[indexPath.row]
+            if eventSubTitle[indexPath.row] != "" {
+                cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{26AB}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
+            }
+        }
+        if eventType[indexPath.row] == "activity"{
+            cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" +  "\u{1F535}" + "\t " + eventTitle[indexPath.row]
+            if eventSubTitle[indexPath.row] != "" {
+                cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{1F535}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
+            }
+        }
+        if eventType[indexPath.row] == "techtalk"{
+            cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" +  "\u{26AA}" + "\t " + eventTitle[indexPath.row]
+            if eventSubTitle[indexPath.row] != "" {
+                cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{26AA}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
+            }
+        }
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+        cell.detailTextLabel?.numberOfLines = 0
+        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+        cell.detailTextLabel?.text = "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
+        cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
+        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(164)/255.0, green: CGFloat(125)/255.0, blue: CGFloat(196)/255.0, alpha: 1.0)
         return cell
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getEventData()
+        sleep(1)
         // Do any additional setup after loading the view.
     }
 
