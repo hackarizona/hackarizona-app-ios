@@ -59,27 +59,27 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
         cell.textLabel?.textColor = UIColor.white
         if eventType[indexPath.row] == "required" {
-            cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{1F534}" + "\t " +  eventTitle[indexPath.row]
+            cell.textLabel?.text = "\u{1F534}" + "\t " +  eventTitle[indexPath.row]
             if eventSubTitle[indexPath.row] != "" {
-                cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{1F534}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
+                cell.textLabel?.text = "\u{1F534}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
             }
         }
         if eventType[indexPath.row] == "food"{
-            cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{26AB}" + "\t " +  eventTitle[indexPath.row]
+            cell.textLabel?.text =  "\u{26AB}" + "\t " +  eventTitle[indexPath.row]
             if eventSubTitle[indexPath.row] != "" {
-                cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{26AB}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
+                cell.textLabel?.text =  "\u{26AB}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
             }
         }
         if eventType[indexPath.row] == "activity"{
-            cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" +  "\u{1F535}" + "\t " + eventTitle[indexPath.row]
+            cell.textLabel?.text =  "\u{1F535}" + "\t " + eventTitle[indexPath.row]
             if eventSubTitle[indexPath.row] != "" {
-                cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{1F535}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
+                cell.textLabel?.text = "\u{1F535}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
             }
         }
         if eventType[indexPath.row] == "techtalk"{
-            cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" +  "\u{26AA}" + "\t " + eventTitle[indexPath.row]
+            cell.textLabel?.text = "\u{26AA}" + "\t " + eventTitle[indexPath.row]
             if eventSubTitle[indexPath.row] != "" {
-                cell.textLabel?.text = "\t " + day[indexPath.row].uppercased() + "\n" + "\u{26AA}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
+                cell.textLabel?.text = "\u{26AA}" + "\t " +  eventTitle[indexPath.row] + "\n" + "\t " + eventSubTitle[indexPath.row]
             }
         }
         cell.textLabel?.numberOfLines = 0
@@ -87,7 +87,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        cell.detailTextLabel?.text = "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
+        cell.detailTextLabel?.text = "\t Day: " + day[indexPath.row].uppercased() + "\n" + "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
         cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
         cell.detailTextLabel?.textColor = UIColor(red: CGFloat(164)/255.0, green: CGFloat(125)/255.0, blue: CGFloat(196)/255.0, alpha: 1.0)
         return cell
