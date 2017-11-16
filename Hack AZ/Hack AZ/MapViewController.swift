@@ -19,10 +19,10 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
             let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
-            cell.contentView.backgroundColor = UIColor.white
-            cell.textLabel?.textColor = UIColor(red: CGFloat(67)/255.0, green: CGFloat(73)/255.0, blue: CGFloat(116)/255.0, alpha: 1.0)
+            cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
+            cell.textLabel?.textColor = UIColor.white
             cell.textLabel?.text = cellContent[indexPath.row]
-            cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
             return cell
     
     }
