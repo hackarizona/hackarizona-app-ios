@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SponsorsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let cellContent = ["Raytheon","Google","Sunquest","State Farm","Latitude","IBM","Microsoft","Coder Camps", "Recruiting.Ai","Amazon","Intuit","Hivemetric"]
+    let cellContent = ["Tech Talks", "Activites", "First Byte"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
