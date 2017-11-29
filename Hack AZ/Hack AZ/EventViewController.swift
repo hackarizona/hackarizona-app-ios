@@ -10,10 +10,24 @@ import UIKit
 
 class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let cellContent = ["Tech Talks", "Activites", "First Byte"]
+    let cellContent = ["\u{1F468}\u{200D}\u{1F4BB}  Tech Talks", "\u{1F3C3}\u{200D}\u{2642}\u{FE0F}  Activites", "\u{1F469}\u{200D}\u{1F3EB}  First Byte"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let rowPressed = indexPath.row
+        let cellPressed = tableView.cellForRow(at: indexPath)
+        
+        if rowPressed == 0{
+            self.performSegue(withIdentifier: "TechTalksSegue", sender: cellPressed)
+        }else if rowPressed == 1 {
+            self.performSegue(withIdentifier: "ActivitiesSegue", sender: cellPressed)
+        }else if rowPressed == 2 {
+            self.performSegue(withIdentifier: "FirstByteSegue", sender: cellPressed)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,7 +51,6 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Dispose of any resources that can be recreated.
     }
     
-    
     /*
      // MARK: - Navigation
      
@@ -47,5 +60,4 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
      // Pass the selected object to the new view controller.
      }
      */
-    
 }

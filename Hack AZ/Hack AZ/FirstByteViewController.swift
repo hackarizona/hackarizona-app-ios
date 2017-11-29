@@ -1,14 +1,14 @@
 //
-//  TechTalksVC.swift
+//  FirstByteViewController.swift
 //  Hack AZ
 //
-//  Created by Cody Deeran on 11/9/17.
+//  Created by Cody Deeran on 11/29/17.
 //  Copyright © 2017 Cody Deeran. All rights reserved.
 //
 
 import UIKit
 
-class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FirstByteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let cellContent = ["Friday","Saturday","Sunday"]
     
@@ -22,7 +22,6 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
     }
@@ -34,13 +33,13 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         let alert = UIAlertController(title: "Loading...", message: "", preferredStyle: .alert)
         if rowPressed == 0{
             self.present(alert, animated: true, completion: nil)
-            self.goToSegue(segue: "ActivitiesFridaySegue", cell: cellPressed)
+            self.goToSegue(segue: "FirstByteFridaySegue", cell: cellPressed)
         }else if rowPressed == 1 {
             self.present(alert, animated: true, completion: nil)
-            self.goToSegue(segue: "ActivitiesSaturdaySegue", cell: cellPressed)
+            self.goToSegue(segue: "FirstByteSaturdaySegue", cell: cellPressed)
         }else if rowPressed == 2 {
             self.present(alert, animated: true, completion: nil)
-            self.goToSegue(segue: "ActivitiesSundaySegue", cell: cellPressed)
+            self.goToSegue(segue: "FirstByteSundaySegue", cell: cellPressed)
         }
     }
     
@@ -64,8 +63,7 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+
     /*
      // MARK: - Navigation
      
@@ -77,5 +75,3 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
      */
     
 }
-
-

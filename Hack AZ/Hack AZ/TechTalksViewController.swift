@@ -8,9 +8,19 @@
 
 import UIKit
 
-class TechTalksVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TechTalksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let cellContent = ["Friday","Saturday","Sunday"]
+    
+    private func goToSegue(segue: String!, cell: UITableViewCell?) {
+        let dismissAlert = DispatchTime.now() + 0.5
+        DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
+            self.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.performSegue(withIdentifier: segue, sender: cell)
+            }
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
@@ -22,43 +32,14 @@ class TechTalksVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let cellPressed = tableView.cellForRow(at: indexPath)
         let alert = UIAlertController(title: "Loading...", message: "", preferredStyle: .alert)
         if rowPressed == 0{
-            print("Friday was pressed! Starting segue....")
             self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
-            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    // Your code with delay
-                    self.performSegue(withIdentifier: "TTFridaySegue", sender: cellPressed)
-                }
-            }
+            self.goToSegue(segue: "TTFridaySegue", cell: cellPressed)
         }else if rowPressed == 1 {
-            print("Saturday was pressed! Starting segue....")
             self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
-            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
-                let deploySeg = DispatchTime.now() + 0.5
-                DispatchQueue.main.asyncAfter(deadline: deploySeg) {
-                    // Your code with delay
-                    self.performSegue(withIdentifier: "TTSaturdaySegue", sender: cellPressed)
-                }
-            }
+            self.goToSegue(segue: "TTSaturdaySegue", cell: cellPressed)
         }else if rowPressed == 2 {
-            print("Saturday was pressed! Starting segue....")
             self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
-            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
-                let deploySeg = DispatchTime.now() + 0.5
-                DispatchQueue.main.asyncAfter(deadline: deploySeg) {
-                    // Your code with delay
-                    self.performSegue(withIdentifier: "TTSundaySegue", sender: cellPressed)
-                }
-            }
+            self.goToSegue(segue: "TTSundaySegue", cell: cellPressed)
         }
     }
     
@@ -82,7 +63,6 @@ class TechTalksVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     /*
      // MARK: - Navigation
