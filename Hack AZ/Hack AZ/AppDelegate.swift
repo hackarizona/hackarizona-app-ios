@@ -28,9 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             options: authOptions,
             completionHandler: {_, _ in })
         
-        if let tokenID = InstanceID.instanceID().token() {
-            print("Token: \(tokenID)")
-        }
+//        Will help to make sure firebase configured correctly
+//        if let tokenID = InstanceID.instanceID().token() {
+//            print("Token: \(tokenID)")
+//        }
         
         
         //  Leave for future follow up, this code from Firebase when iOS 11 was not out.

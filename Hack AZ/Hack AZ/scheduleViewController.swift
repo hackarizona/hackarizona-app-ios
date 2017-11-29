@@ -16,49 +16,30 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         return cellContent.count
     }
     
+    private func goToSegue(segue: String!, cell: UITableViewCell?) {
+        let dismissAlert = DispatchTime.now() + 0.5
+        DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
+            self.dismiss(animated: true, completion: nil)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.performSegue(withIdentifier: segue, sender: cell)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
         let cellPressed = tableView.cellForRow(at: indexPath)
         let alert = UIAlertController(title: "Loading...", message: "", preferredStyle: .alert)
         if rowPressed == 0{
-            print("Friday was pressed! Starting segue....")
             self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
-            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    // Your code with delay
-                    self.performSegue(withIdentifier: "ScheduleFridaySegue", sender: cellPressed)
-                }
-            }
+            self.goToSegue(segue: "ScheduleFridaySegue", cell: cellPressed)
         }else if rowPressed == 1 {
-            print("Saturday was pressed! Starting segue....")
             self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
-            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
-                let deploySeg = DispatchTime.now() + 0.5
-                DispatchQueue.main.asyncAfter(deadline: deploySeg) {
-                    // Your code with delay
-                    self.performSegue(withIdentifier: "ScheduleSaturdaySegue", sender: cellPressed)
-                }
-            }
+            self.goToSegue(segue: "ScheduleSaturdaySegue", cell: cellPressed)
         }else if rowPressed == 2 {
-            print("Saturday was pressed! Starting segue....")
             self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
-            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
-                let deploySeg = DispatchTime.now() + 0.5
-                DispatchQueue.main.asyncAfter(deadline: deploySeg) {
-                    // Your code with delay
-                    self.performSegue(withIdentifier: "ScheduleSundaySegue", sender: cellPressed)
-                }
-            }
+            self.goToSegue(segue: "ScheduleSundaySegue", cell: cellPressed)
         }
     }
     
@@ -82,7 +63,6 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     /*
      // MARK: - Navigation
