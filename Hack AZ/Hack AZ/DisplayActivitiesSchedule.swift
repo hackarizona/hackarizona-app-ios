@@ -69,8 +69,8 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.detailTextLabel?.text = "Time: " + activityTime[indexPath.row] + "\nLocation: " + activityLocation[indexPath.row]
         cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
-        cell.detailTextLabel?.textColor = UIColor.black
-//        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(164)/255.0, green: CGFloat(125)/255.0, blue: CGFloat(196)/255.0, alpha: 1.0)
+        //cell.detailTextLabel?.textColor = UIColor.black
+        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(164)/255.0, green: CGFloat(125)/255.0, blue: CGFloat(196)/255.0, alpha: 1.0)
         
         return cell
     }

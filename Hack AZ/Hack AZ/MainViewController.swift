@@ -12,7 +12,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     let cellContent = ["Schedule","Events","Map","Live Stream","Mentor Hub","Social Media"]
     let url = URL(string: "http://hackarizona.org/livestream.json")!
+    let url2 = URL(string: "http://hackarizona.org/mentorhub.json")!
     var liveStreamUrl = ""
+    var mentorHubUrl = ""
     
     func getLiveStreamLink() -> Void {
         let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
@@ -33,6 +35,27 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         task.resume()
     }
+    
+    func getMentorHubLink() -> Void {
+        let task = URLSession.shared.dataTask(with: url2){ (data, response, error) in
+            if error != nil {
+                print(error!)
+            }else{
+                if let urlContent = data {
+                    do {
+                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options:JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
+                        if let jsonData = (jsonResult!["mentorhub"] as? NSArray) {
+                            self.mentorHubUrl = (jsonData[0] as? NSDictionary)?["link"] as! String
+                        }
+                    } catch {
+                        print("JSON Processing Failed!")
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
@@ -60,16 +83,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         }else if rowPressed == 4 {
-            let errorAlert = UIAlertController(title: "Sorry!", message: "This feature is currently being developed by the Hack AZ Team!", preferredStyle: UIAlertControllerStyle.alert)
-            errorAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(errorAlert, animated: true, completion: nil)
-//            self.present(alert, animated: true, completion: nil)
-//            let dismissAlert = DispatchTime.now() + 0.5
-//            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-//                // Your code with delay
-//                self.dismiss(animated: true, completion: nil)
-//                // Mentor Hub
-//            }
+//            let errorAlert = UIAlertController(title: "Coming Soon!", message: "12-1-2017", preferredStyle: UIAlertControllerStyle.alert)
+//            errorAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(errorAlert, animated: true, completion: nil)
+            self.present(alert, animated: true, completion: nil)
+            let dismissAlert = DispatchTime.now() + 0.5
+            DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
+                // Your code with delay
+                self.dismiss(animated: true, completion: nil)
+                if let streamUrl = URL(string: self.mentorHubUrl){
+                    UIApplication.shared.open(streamUrl, options: [:], completionHandler: nil)
+                }
+            }
         }else if rowPressed == 5 {
             self.performSegue(withIdentifier: "socialmediaSegue", sender: cellPressed)
         }
@@ -78,8 +103,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
-        cell.contentView.backgroundColor = UIColor(red: CGFloat(66)/255.0, green: CGFloat(69)/255.0, blue: CGFloat(120)/255.0, alpha: 1.0)
-        cell.textLabel?.textColor = UIColor.white
+//        cell.contentView.backgroundColor = UIColor(red: CGFloat(65)/255.0, green: CGFloat(72)/255.0, blue: CGFloat(116)/255.0, alpha: 1.0)
+        cell.contentView.backgroundColor = UIColor.black
+        cell.textLabel?.textColor = UIColor(red: CGFloat(144)/255.0, green: CGFloat(96)/255.0, blue: CGFloat(197)/255.0, alpha: 1.0)
+
         if cellContent[indexPath.row].lowercased() == "schedule" {
             cell.textLabel?.text = "\u{1F5D3}" + "\t" + cellContent[indexPath.row]
         }
@@ -99,7 +126,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.textLabel?.text = "\u{1F5E3}" + "\t" + cellContent[indexPath.row]
         }
 
-        cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        cell.textLabel?.font = UIFont(name: "Arial", size:30.0)
         return cell
         
     }
@@ -107,6 +134,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         getLiveStreamLink()
+        getMentorHubLink()
     }
     
     override func didReceiveMemoryWarning() {

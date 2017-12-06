@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import Hack_AZ
 
 class Hack_AZTests: XCTestCase {
     

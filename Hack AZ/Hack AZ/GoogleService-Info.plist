@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1007213304418-a8kgfk6bpd7ch30aqffqn3u8pbaqs9vs.apps.googleusercontent.com</string>
+	<string>370684208314-ajla7ft99ds4ok32pt9cid2gurf2811f.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1007213304418-a8kgfk6bpd7ch30aqffqn3u8pbaqs9vs</string>
+	<string>com.googleusercontent.apps.370684208314-ajla7ft99ds4ok32pt9cid2gurf2811f</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA7eJuNjfuTBrd8CMaB985GlzABvD7MwyY</string>
+	<string>AIzaSyAblwIPdUOY7SEkYZLKDuhY1HgkOsH87DM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1007213304418</string>
+	<string>370684208314</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mobieventlabs.Hack-AZ</string>
+	<string>com.hackarizona.Hack-AZ</string>
 	<key>PROJECT_ID</key>
-	<string>hack-az</string>
+	<string>hack-arizona</string>
 	<key>STORAGE_BUCKET</key>
-	<string>hack-az.appspot.com</string>
+	<string>hack-arizona.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1007213304418:ios:cce37e1abc37ac87</string>
+	<string>1:370684208314:ios:a436e79b03ec35b5</string>
 	<key>DATABASE_URL</key>
-	<string>https://hack-az.firebaseio.com</string>
+	<string>https://hack-arizona.firebaseio.com</string>
 </dict>
 </plist>

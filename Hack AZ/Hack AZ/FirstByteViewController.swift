@@ -13,7 +13,7 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
     let cellContent = ["Friday","Saturday","Sunday"]
     
     private func goToSegue(segue: String!, cell: UITableViewCell?) {
-        let dismissAlert = DispatchTime.now() + 0.5
+        let dismissAlert = DispatchTime.now() + 0.8
         DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
             self.dismiss(animated: true, completion: nil)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

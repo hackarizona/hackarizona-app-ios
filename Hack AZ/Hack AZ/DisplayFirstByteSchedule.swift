@@ -15,7 +15,7 @@ class DisplayFirstByteSchedule: UIViewController, UITableViewDelegate, UITableVi
     var location = [String]()
     let url = URL(string: "http://hackarizona.org/firstbyte.json")!
     
-    fileprivate func eventDataHelper(day: String!, jsonFile: [String : Any]?) {
+    private func eventDataHelper(day: String!, jsonFile: [String : Any]?) {
         if let jsonData = (jsonFile![day] as? NSArray) {
             for index in 0...(jsonData.count-1) {
                 self.workshop.append((jsonData[index] as? NSDictionary)?["workshop"] as! String)
@@ -69,8 +69,8 @@ class DisplayFirstByteSchedule: UIViewController, UITableViewDelegate, UITableVi
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.detailTextLabel?.text = "Time: " + time[indexPath.row] + "\nLocation: " + location[indexPath.row]
         cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
-        cell.detailTextLabel?.textColor = UIColor.black
-        //cell.detailTextLabel?.textColor = UIColor(red: CGFloat(164)/255.0, green: CGFloat(125)/255.0, blue: CGFloat(196)/255.0, alpha: 1.0)
+        //cell.detailTextLabel?.textColor = UIColor.black
+        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(164)/255.0, green: CGFloat(125)/255.0, blue: CGFloat(196)/255.0, alpha: 1.0)
         return cell
     }
     
