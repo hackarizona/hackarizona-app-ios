@@ -16,6 +16,7 @@
 		C303C6E41FBD68E2003E0235 /* sel_floor5.png in Resources */ = {isa = PBXBuildFile; fileRef = C303C6DF1FBD68E2003E0235 /* sel_floor5.png */; };
 		C30A289D1FB598C800452932 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A289C1FB598C800452932 /* EventViewController.swift */; };
 		C311920A1FD4A1310098F054 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C31192091FD4A1310098F054 /* GoogleService-Info.plist */; };
+		C31541CB1FD791E300B94DF8 /* Logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31541CA1FD791E300B94DF8 /* Logo@3x.png */; };
 		C31D84DD1F85F8FC00CFA774 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */; };
 		C3489D531FC2238A000DE0E1 /* DisplayMasterSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3489D521FC2238A000DE0E1 /* DisplayMasterSchedule.swift */; };
 		C3489D5E1FC27AF9000DE0E1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C3489D571FC27AF8000DE0E1 /* background.png */; };
@@ -77,6 +78,7 @@
 		C303C6DF1FBD68E2003E0235 /* sel_floor5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sel_floor5.png; sourceTree = "<group>"; };
 		C30A289C1FB598C800452932 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		C31192091FD4A1310098F054 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C31541CA1FD791E300B94DF8 /* Logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo@3x.png"; sourceTree = "<group>"; };
 		C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		C3489D521FC2238A000DE0E1 /* DisplayMasterSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMasterSchedule.swift; sourceTree = "<group>"; };
 		C3489D571FC27AF8000DE0E1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		C34F24061F84A66A00DBF3A1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C31541CA1FD791E300B94DF8 /* Logo@3x.png */,
 				C3F6FEC31FD7388D00919BFC /* logo_trans.png */,
 				C3F6FEC11FD733EF00919BFC /* LargeBKGD.jpg */,
 				C3B95DE81FC4C3C300754E8D /* Events_Icon.jpg */,
@@ -391,6 +394,7 @@
 				C3EAF8381F81FDED0095F5EC /* Assets.xcassets in Resources */,
 				C303C6E11FBD68E2003E0235 /* sel_floor4.png in Resources */,
 				C311920A1FD4A1310098F054 /* GoogleService-Info.plist in Resources */,
+				C31541CB1FD791E300B94DF8 /* Logo@3x.png in Resources */,
 				C3B95DF01FC4C3C400754E8D /* Mentor_Hub.jpg in Resources */,
 				C3EAF8361F81FDED0095F5EC /* Main.storyboard in Resources */,
 				C3F6FEC41FD7388E00919BFC /* logo_trans.png in Resources */,

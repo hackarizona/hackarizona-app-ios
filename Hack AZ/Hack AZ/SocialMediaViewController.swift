@@ -55,12 +55,25 @@ class SocialMediaViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
         if rowPressed == 0{
+           self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(64)/255.0, green: CGFloat(104)/255.0, blue: CGFloat(173)/255.0, alpha: 1.0)
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
             openFacebook()
         }else if rowPressed == 1 {
+            let color = UIColor(red: CGFloat(252)/255.0, green: CGFloat(171)/255.0, blue: CGFloat(94)/255.0, alpha: 1.0)
+            self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(147)/255.0, green: CGFloat(63)/255.0, blue: CGFloat(163)/255.0, alpha: 1.0)
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: color ]
+            self.navigationItem.leftBarButtonItem?.tintColor = color
             openInstagram()
         }else if rowPressed == 2 {
+            self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(0)/255.0, green: CGFloat(163)/255.0, blue: CGFloat(236)/255.0, alpha: 1.0)
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
             openTwitter()
         }else if rowPressed == 3 {
+            self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(255)/255.0, green: CGFloat(250)/255.0, blue: CGFloat(85)/255.0, alpha: 1.0)
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
+            self.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
             openSnapchat()
         }
     }
@@ -68,16 +81,32 @@ class SocialMediaViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
-        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
-        cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = cellContent[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        cell.contentView.backgroundColor = UIColor.black
+        let text = cellContent[indexPath.row]
+        if (text == "Facebook"){
+            cell.textLabel?.textColor = UIColor(red: CGFloat(64)/255.0, green: CGFloat(104)/255.0, blue: CGFloat(173)/255.0, alpha: 1.0)
+            cell.textLabel?.text = text
+            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        }else if (text == "Instagram"){
+            cell.textLabel?.textColor = UIColor(red: CGFloat(147)/255.0, green: CGFloat(63)/255.0, blue: CGFloat(163)/255.0, alpha: 1.0)
+            cell.textLabel?.text = text
+            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        }else if (text == "Twitter"){
+            cell.textLabel?.textColor = UIColor(red: CGFloat(0)/255.0, green: CGFloat(163)/255.0, blue: CGFloat(236)/255.0, alpha: 1.0)
+            cell.textLabel?.text = text
+            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        }else if (text == "Snapchat"){
+            cell.textLabel?.textColor = UIColor(red: CGFloat(255)/255.0, green: CGFloat(250)/255.0, blue: CGFloat(85)/255.0, alpha: 1.0)
+            cell.textLabel?.text = text
+            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        }
         return cell
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(64)/255.0, green: CGFloat(104)/255.0, blue: CGFloat(173)/255.0, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
     

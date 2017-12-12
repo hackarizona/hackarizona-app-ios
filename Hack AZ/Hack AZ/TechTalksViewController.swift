@@ -11,11 +11,13 @@ import UIKit
 class TechTalksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let cellContent = ["Friday","Saturday","Sunday"]
+    let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     private func goToSegue(segue: String!, cell: UITableViewCell?) {
         let dismissAlert = DispatchTime.now() + 0.5
         DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-            self.dismiss(animated: true, completion: nil)
+            self.activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.performSegue(withIdentifier: segue, sender: cell)
             }
@@ -30,15 +32,21 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
         let cellPressed = tableView.cellForRow(at: indexPath)
-        let alert = UIAlertController(title: "Loading...", message: "", preferredStyle: .alert)
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        self.view.addSubview(activityIndicator)
         if rowPressed == 0{
-            self.present(alert, animated: true, completion: nil)
+            activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
             self.goToSegue(segue: "TTFridaySegue", cell: cellPressed)
         }else if rowPressed == 1 {
-            self.present(alert, animated: true, completion: nil)
+            activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
             self.goToSegue(segue: "TTSaturdaySegue", cell: cellPressed)
         }else if rowPressed == 2 {
-            self.present(alert, animated: true, completion: nil)
+            activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
             self.goToSegue(segue: "TTSundaySegue", cell: cellPressed)
         }
     }
@@ -46,8 +54,9 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
-        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
-        cell.textLabel?.textColor = UIColor.white
+//        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
+        cell.contentView.backgroundColor = UIColor.black
+        cell.textLabel?.textColor = UIColor(red: CGFloat(149)/255.0, green: CGFloat(127)/255.0, blue: CGFloat(197)/255.0, alpha: 1.0)
         cell.textLabel?.text = cellContent[indexPath.row]
         cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         return cell
@@ -64,15 +73,26 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    /*
+
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
+        if segue.identifier == "TTFridaySegue" {
+            let tempController = segue.destination as! UINavigationController
+            let masterScheduleViewController = tempController.topViewController as! DisplayTechTalksSchedule
+            masterScheduleViewController.daySelected = "friday"
+        }else if segue.identifier == "TTSaturdaySegue" {
+            let tempController = segue.destination as! UINavigationController
+            let masterScheduleViewController = tempController.topViewController as! DisplayTechTalksSchedule
+            masterScheduleViewController.daySelected = "saturday"
+        }else if segue.identifier == "TTSundaySegue" {
+            let tempController = segue.destination as! UINavigationController
+            let masterScheduleViewController = tempController.topViewController as! DisplayTechTalksSchedule
+            masterScheduleViewController.daySelected = "sunday"
+        }
      }
-     */
+    
     
 }
 
