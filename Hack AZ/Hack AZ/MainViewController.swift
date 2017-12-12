@@ -15,15 +15,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     let url2 = URL(string: "http://hackarizona.org/mentorhub.json")!
     var liveStreamUrl = ""
     var mentorHubUrl = ""
-    
+
     func getLiveStreamLink() -> Void {
-        let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+        // Disable caching
+        let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 60.0)
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
             if error != nil {
                 print(error!)
             }else{
                 if let urlContent = data {
                     do {
-                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options:JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
+                        var jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: []) as? [String: Any]
                         if let jsonData = (jsonResult!["livestream"] as? NSArray) {
                             self.liveStreamUrl = (jsonData[0] as? NSDictionary)?["link"] as! String
                         }
@@ -37,7 +39,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func getMentorHubLink() -> Void {
-        let task = URLSession.shared.dataTask(with: url2){ (data, response, error) in
+        // Disable caching
+        let request = URLRequest(url: url2, cachePolicy: URLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 60.0)
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
             if error != nil {
                 print(error!)
             }else{
@@ -65,7 +69,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
         let cellPressed = tableView.cellForRow(at: indexPath)
-        let alert = UIAlertController(title: "Loading...", message: "", preferredStyle: .alert)
+        let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        self.view.addSubview(activityIndicator)
         if rowPressed == 0{
             self.performSegue(withIdentifier: "scheduleSegue", sender: cellPressed)
         }else if rowPressed == 1 {
@@ -73,24 +81,25 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }else if rowPressed == 2 {
             self.performSegue(withIdentifier: "mapSegue", sender: cellPressed)
         }else if rowPressed == 3 {
-            self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
+            getLiveStreamLink()
+            activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            let dismissAlert = DispatchTime.now() +  1.0
             DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
+                activityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
                 if let streamUrl = URL(string: self.liveStreamUrl){
                     UIApplication.shared.open(streamUrl, options: [:], completionHandler: nil)
                 }
             }
         }else if rowPressed == 4 {
-//            let errorAlert = UIAlertController(title: "Coming Soon!", message: "12-1-2017", preferredStyle: UIAlertControllerStyle.alert)
-//            errorAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-//            self.present(errorAlert, animated: true, completion: nil)
-            self.present(alert, animated: true, completion: nil)
-            let dismissAlert = DispatchTime.now() + 0.5
+            getMentorHubLink()
+            activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            let dismissAlert = DispatchTime.now() + 1.0
             DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-                // Your code with delay
-                self.dismiss(animated: true, completion: nil)
+                activityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
                 if let streamUrl = URL(string: self.mentorHubUrl){
                     UIApplication.shared.open(streamUrl, options: [:], completionHandler: nil)
                 }
@@ -105,7 +114,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
 //        cell.contentView.backgroundColor = UIColor(red: CGFloat(65)/255.0, green: CGFloat(72)/255.0, blue: CGFloat(116)/255.0, alpha: 1.0)
         cell.contentView.backgroundColor = UIColor.black
-        cell.textLabel?.textColor = UIColor(red: CGFloat(144)/255.0, green: CGFloat(96)/255.0, blue: CGFloat(197)/255.0, alpha: 1.0)
+        cell.textLabel?.textColor = UIColor(red: CGFloat(183)/255.0, green: CGFloat(122)/255.0, blue: CGFloat(254)/255.0, alpha: 1.0)
 
         if cellContent[indexPath.row].lowercased() == "schedule" {
             cell.textLabel?.text = "\u{1F5D3}" + "\t" + cellContent[indexPath.row]
@@ -132,7 +141,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(183)/255.0, green: CGFloat(122)/255.0, blue: CGFloat(254)/255.0, alpha: 1.0)
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         getLiveStreamLink()
         getMentorHubLink()
     }
@@ -141,7 +154,5 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }
 

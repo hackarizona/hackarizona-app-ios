@@ -33,8 +33,10 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
-        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
-        cell.textLabel?.textColor = UIColor.white
+//        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
+//        cell.textLabel?.textColor = UIColor.white
+        cell.contentView.backgroundColor = UIColor.black
+        cell.textLabel?.textColor = UIColor(red: CGFloat(133)/255.0, green: CGFloat(127)/255.0, blue: CGFloat(198)/255.0, alpha: 1.0)
         cell.textLabel?.text = cellContent[indexPath.row]
         cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         return cell

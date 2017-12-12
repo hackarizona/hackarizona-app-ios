@@ -15,6 +15,8 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
     var day = [String]()
     var time = [String]()
     var location = [String]()
+    var first_description = [String]()
+    var daySelected = ""
     let url = URL(string: "http://hackarizona.org/masterschedule.json")!
     
     private func eventDataHelper(day: String!, jsonfile: [String: Any]?) {
@@ -26,28 +28,22 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
                 self.day.append((jsonData[index] as? NSDictionary)?["day"] as! String)
                 self.time.append((jsonData[index] as? NSDictionary)?["time"] as! String)
                 self.location.append((jsonData[index] as? NSDictionary)?["location"] as! String)
+                self.first_description.append((jsonData[index] as? NSDictionary)?["description"] as! String)
             }
         }
     }
     
     func getEventData() -> Void{
         // Setup the url for hackAZ
-        let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+        let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 60.0)
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
             if error != nil {
                 print(error!)
             }else{
                 if let urlContent = data {
                     do {
                         let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options:JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
-                        if let title = self.title {
-                            if title == "FRIDAY_SCHEDULE" {
-                                self.eventDataHelper(day: "friday", jsonfile: jsonResult)
-                            } else if title == "SATURDAY_SCHEDULE" {
-                                self.eventDataHelper(day: "saturday", jsonfile: jsonResult)
-                            } else if title == "SUNDAY_SCHEDULE" {
-                                self.eventDataHelper(day: "sunday", jsonfile: jsonResult)
-                            }
-                        }
+                        self.eventDataHelper(day: self.daySelected, jsonfile: jsonResult)
                     } catch {
                         print("JSON Processing Failed!")
                     }
@@ -64,7 +60,7 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "mainCell")
-        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
+        cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor.white
         if eventType[indexPath.row] == "required" {
             cell.textLabel?.text = "\u{1F335}" + "\t " +  eventTitle[indexPath.row]
@@ -109,13 +105,34 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
         cell.detailTextLabel?.text = "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
         cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
 //        cell.detailTextLabel?.textColor = UIColor.black
-        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(164)/255.0, green: CGFloat(125)/255.0, blue: CGFloat(196)/255.0, alpha: 1.0)
+        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
         return cell
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let rowPressed = indexPath.row
+        for id in 0...(self.eventType.count-1) {
+            if (id == rowPressed){
+                let des = first_description[id]
+                if des == "" {
+                    let alert = UIAlertController(title: "Description", message: "Description is unavailable at this time" , preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }else{
+                    let alert = UIAlertController(title: "Description", message: des , preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                break
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = daySelected.uppercased()
         getEventData()
         sleep(1)
         // Do any additional setup after loading the view.
@@ -125,7 +142,7 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     /*
      // MARK: - Navigation
      

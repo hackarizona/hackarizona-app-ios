@@ -13,6 +13,8 @@ class DisplayFirstByteSchedule: UIViewController, UITableViewDelegate, UITableVi
     var workshop = [String]()
     var time = [String]()
     var location = [String]()
+    var first_description = [String]()
+    var daySelected = ""
     let url = URL(string: "http://hackarizona.org/firstbyte.json")!
     
     private func eventDataHelper(day: String!, jsonFile: [String : Any]?) {
@@ -21,28 +23,22 @@ class DisplayFirstByteSchedule: UIViewController, UITableViewDelegate, UITableVi
                 self.workshop.append((jsonData[index] as? NSDictionary)?["workshop"] as! String)
                 self.time.append((jsonData[index] as? NSDictionary)?["time"] as! String)
                 self.location.append((jsonData[index] as? NSDictionary)?["location"] as! String)
+                self.first_description.append((jsonData[index] as? NSDictionary)?["description"] as! String)
             }
         }
     }
     
     func getEventData() -> Void{
         // Setup the url for hackAZ
-        let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+        let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 60.0)
+        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
             if error != nil {
                 print(error!)
             }else{
                 if let urlContent = data {
                     do {
                         let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options:JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
-                        if let title = self.title {
-                            if title == "FIRSTBYTE_FRIDAY_SCHEDULE" {
-                                self.eventDataHelper(day: "friday", jsonFile: jsonResult)
-                            } else if title == "FIRSTBYTE_SATURDAY_SCHEDULE" {
-                                self.eventDataHelper(day: "saturday", jsonFile: jsonResult)
-                            } else if title == "FIRSTBYTE_SUNDAY_SCHEDULE" {
-                                self.eventDataHelper(day: "sunday", jsonFile: jsonResult)
-                            }
-                        }
+                        self.eventDataHelper(day: self.daySelected, jsonFile: jsonResult)
                     } catch {
                         print("JSON Processing Failed!")
                     }
@@ -57,9 +53,8 @@ class DisplayFirstByteSchedule: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "mainCell")
-        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
+        cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor.white
         cell.textLabel?.text = workshop[indexPath.row]
         cell.textLabel?.numberOfLines = 0
@@ -70,12 +65,33 @@ class DisplayFirstByteSchedule: UIViewController, UITableViewDelegate, UITableVi
         cell.detailTextLabel?.text = "Time: " + time[indexPath.row] + "\nLocation: " + location[indexPath.row]
         cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
         //cell.detailTextLabel?.textColor = UIColor.black
-        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(164)/255.0, green: CGFloat(125)/255.0, blue: CGFloat(196)/255.0, alpha: 1.0)
+        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(86)/255.0, green: CGFloat(91)/255.0, blue: CGFloat(146)/255.0, alpha: 1.0)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let rowPressed = indexPath.row
+        for id in 0...(self.workshop.count-1) {
+            if (id == rowPressed){
+                let des = first_description[id]
+                if des == "" {
+                    let alert = UIAlertController(title: "Description", message: "Description is unavailable at this time" , preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }else{
+                    let alert = UIAlertController(title: "Description", message: des , preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                break
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = daySelected.uppercased()
         getEventData()
         sleep(1)
     }
@@ -87,8 +103,6 @@ class DisplayFirstByteSchedule: UIViewController, UITableViewDelegate, UITableVi
     
     //     MARK: - Navigation
     //     In a storyboard-based application, you will often want to do a little preparation before navigation
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //         Get the new view controller using segue.destinationViewController.
-    //          Pass the selected object to the new view controller.
-    //    }
+    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //}
 }
