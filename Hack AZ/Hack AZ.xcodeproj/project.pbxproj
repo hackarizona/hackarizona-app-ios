@@ -9,26 +9,18 @@
 /* Begin PBXBuildFile section */
 		0A65C67E5001E9B57DBB86EB /* Pods_Hack_AZUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E02B292CF4A438A2770E8B8 /* Pods_Hack_AZUITests.framework */; };
 		3077DF094038B9CFC029F4D7 /* Pods_Hack_AZTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8509B2ABFD40B28496085DD5 /* Pods_Hack_AZTests.framework */; };
-		C303C6E01FBD68E2003E0235 /* sel_floor1.png in Resources */ = {isa = PBXBuildFile; fileRef = C303C6DB1FBD68E1003E0235 /* sel_floor1.png */; };
-		C303C6E11FBD68E2003E0235 /* sel_floor4.png in Resources */ = {isa = PBXBuildFile; fileRef = C303C6DC1FBD68E1003E0235 /* sel_floor4.png */; };
-		C303C6E21FBD68E2003E0235 /* sel_floor2.png in Resources */ = {isa = PBXBuildFile; fileRef = C303C6DD1FBD68E1003E0235 /* sel_floor2.png */; };
-		C303C6E31FBD68E2003E0235 /* sel_floor3.png in Resources */ = {isa = PBXBuildFile; fileRef = C303C6DE1FBD68E2003E0235 /* sel_floor3.png */; };
-		C303C6E41FBD68E2003E0235 /* sel_floor5.png in Resources */ = {isa = PBXBuildFile; fileRef = C303C6DF1FBD68E2003E0235 /* sel_floor5.png */; };
 		C30A289D1FB598C800452932 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A289C1FB598C800452932 /* EventViewController.swift */; };
 		C311920A1FD4A1310098F054 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C31192091FD4A1310098F054 /* GoogleService-Info.plist */; };
-		C31541CB1FD791E300B94DF8 /* Logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31541CA1FD791E300B94DF8 /* Logo@3x.png */; };
 		C31D84DD1F85F8FC00CFA774 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */; };
 		C3489D531FC2238A000DE0E1 /* DisplayMasterSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3489D521FC2238A000DE0E1 /* DisplayMasterSchedule.swift */; };
-		C3489D5E1FC27AF9000DE0E1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C3489D571FC27AF8000DE0E1 /* background.png */; };
+		C38B72C51FE08C4800498B6E /* floor1.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C01FE08C4800498B6E /* floor1.png */; };
+		C38B72C61FE08C4800498B6E /* floor5.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C11FE08C4800498B6E /* floor5.png */; };
+		C38B72C71FE08C4800498B6E /* floor4.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C21FE08C4800498B6E /* floor4.png */; };
+		C38B72C81FE08C4800498B6E /* floor2.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C31FE08C4800498B6E /* floor2.png */; };
+		C38B72C91FE08C4800498B6E /* floor3.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C41FE08C4800498B6E /* floor3.png */; };
+		C38B72CB1FE09B1200498B6E /* DisplayMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B72CA1FE09B1200498B6E /* DisplayMap.swift */; };
 		C3A9793F1FB01A8C0002BEB5 /* DisplayTechTalksSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A9793E1FB01A8C0002BEB5 /* DisplayTechTalksSchedule.swift */; };
 		C3A979431FB01EC80002BEB5 /* TechTalksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A979421FB01EC80002BEB5 /* TechTalksViewController.swift */; };
-		C3B95DEB1FC4C3C400754E8D /* Map_Icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3B95DE41FC4C3C300754E8D /* Map_Icon.jpg */; };
-		C3B95DEC1FC4C3C400754E8D /* Live_Stream.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3B95DE51FC4C3C300754E8D /* Live_Stream.jpg */; };
-		C3B95DED1FC4C3C400754E8D /* Schedule_Icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3B95DE61FC4C3C300754E8D /* Schedule_Icon.jpg */; };
-		C3B95DEE1FC4C3C400754E8D /* Social_Media.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3B95DE71FC4C3C300754E8D /* Social_Media.jpg */; };
-		C3B95DEF1FC4C3C400754E8D /* Events_Icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3B95DE81FC4C3C300754E8D /* Events_Icon.jpg */; };
-		C3B95DF01FC4C3C400754E8D /* Mentor_Hub.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3B95DE91FC4C3C400754E8D /* Mentor_Hub.jpg */; };
-		C3B95DF11FC4C3C400754E8D /* Logo_Header.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3B95DEA1FC4C3C400754E8D /* Logo_Header.jpg */; };
 		C3EAF8311F81FDED0095F5EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAF8301F81FDED0095F5EC /* AppDelegate.swift */; };
 		C3EAF8331F81FDED0095F5EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EAF8321F81FDED0095F5EC /* MainViewController.swift */; };
 		C3EAF8361F81FDED0095F5EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3EAF8341F81FDED0095F5EC /* Main.storyboard */; };
@@ -40,7 +32,6 @@
 		C3EB685A1FCEAAFD0048CFC8 /* FirstByteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB68591FCEAAFD0048CFC8 /* FirstByteViewController.swift */; };
 		C3EB685C1FCEAC220048CFC8 /* DisplayFirstByteSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB685B1FCEAC220048CFC8 /* DisplayFirstByteSchedule.swift */; };
 		C3EB685E1FCEB8BB0048CFC8 /* SocialMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EB685D1FCEB8BB0048CFC8 /* SocialMediaViewController.swift */; };
-		C3F6FEC21FD733EF00919BFC /* LargeBKGD.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3F6FEC11FD733EF00919BFC /* LargeBKGD.jpg */; };
 		C3F6FEC41FD7388E00919BFC /* logo_trans.png in Resources */ = {isa = PBXBuildFile; fileRef = C3F6FEC31FD7388D00919BFC /* logo_trans.png */; };
 		C3F71AB31FB4EF09009D3C5B /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F71AB21FB4EF09009D3C5B /* ActivitiesViewController.swift */; };
 		C3F71AB51FB4EF55009D3C5B /* DisplayActivitiesSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F71AB41FB4EF55009D3C5B /* DisplayActivitiesSchedule.swift */; };
@@ -71,27 +62,19 @@
 		80D379F93BD0D47C3D4B9CBE /* Pods-Hack AZTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack AZTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack AZTests/Pods-Hack AZTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8509B2ABFD40B28496085DD5 /* Pods_Hack_AZTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hack_AZTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B420ECF5A26F26A6045B9DB /* Pods-Hack AZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack AZ.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hack AZ/Pods-Hack AZ.release.xcconfig"; sourceTree = "<group>"; };
-		C303C6DB1FBD68E1003E0235 /* sel_floor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sel_floor1.png; sourceTree = "<group>"; };
-		C303C6DC1FBD68E1003E0235 /* sel_floor4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sel_floor4.png; sourceTree = "<group>"; };
-		C303C6DD1FBD68E1003E0235 /* sel_floor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sel_floor2.png; sourceTree = "<group>"; };
-		C303C6DE1FBD68E2003E0235 /* sel_floor3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sel_floor3.png; sourceTree = "<group>"; };
-		C303C6DF1FBD68E2003E0235 /* sel_floor5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sel_floor5.png; sourceTree = "<group>"; };
 		C30A289C1FB598C800452932 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		C31192091FD4A1310098F054 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		C31541CA1FD791E300B94DF8 /* Logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Logo@3x.png"; sourceTree = "<group>"; };
 		C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		C3489D521FC2238A000DE0E1 /* DisplayMasterSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMasterSchedule.swift; sourceTree = "<group>"; };
-		C3489D571FC27AF8000DE0E1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		C37AD77267F98C165E675341 /* Pods-Hack AZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack AZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack AZUITests/Pods-Hack AZUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C38B72C01FE08C4800498B6E /* floor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor1.png; sourceTree = "<group>"; };
+		C38B72C11FE08C4800498B6E /* floor5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor5.png; sourceTree = "<group>"; };
+		C38B72C21FE08C4800498B6E /* floor4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor4.png; sourceTree = "<group>"; };
+		C38B72C31FE08C4800498B6E /* floor2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor2.png; sourceTree = "<group>"; };
+		C38B72C41FE08C4800498B6E /* floor3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor3.png; sourceTree = "<group>"; };
+		C38B72CA1FE09B1200498B6E /* DisplayMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMap.swift; sourceTree = "<group>"; };
 		C3A9793E1FB01A8C0002BEB5 /* DisplayTechTalksSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTechTalksSchedule.swift; sourceTree = "<group>"; };
 		C3A979421FB01EC80002BEB5 /* TechTalksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechTalksViewController.swift; sourceTree = "<group>"; };
-		C3B95DE41FC4C3C300754E8D /* Map_Icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Map_Icon.jpg; sourceTree = "<group>"; };
-		C3B95DE51FC4C3C300754E8D /* Live_Stream.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Live_Stream.jpg; sourceTree = "<group>"; };
-		C3B95DE61FC4C3C300754E8D /* Schedule_Icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Schedule_Icon.jpg; sourceTree = "<group>"; };
-		C3B95DE71FC4C3C300754E8D /* Social_Media.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Social_Media.jpg; sourceTree = "<group>"; };
-		C3B95DE81FC4C3C300754E8D /* Events_Icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Events_Icon.jpg; sourceTree = "<group>"; };
-		C3B95DE91FC4C3C400754E8D /* Mentor_Hub.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mentor_Hub.jpg; sourceTree = "<group>"; };
-		C3B95DEA1FC4C3C400754E8D /* Logo_Header.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo_Header.jpg; sourceTree = "<group>"; };
 		C3EAF82D1F81FDED0095F5EC /* Hack AZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hack AZ.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EAF8301F81FDED0095F5EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3EAF8321F81FDED0095F5EC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +93,6 @@
 		C3EB685B1FCEAC220048CFC8 /* DisplayFirstByteSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFirstByteSchedule.swift; sourceTree = "<group>"; };
 		C3EB685D1FCEB8BB0048CFC8 /* SocialMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaViewController.swift; sourceTree = "<group>"; };
 		C3F1D8881FBBF20C00C5D300 /* Hack AZ.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Hack AZ.entitlements"; sourceTree = "<group>"; };
-		C3F6FEC11FD733EF00919BFC /* LargeBKGD.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LargeBKGD.jpg; sourceTree = "<group>"; };
 		C3F6FEC31FD7388D00919BFC /* logo_trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_trans.png; sourceTree = "<group>"; };
 		C3F71AB21FB4EF09009D3C5B /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
 		C3F71AB41FB4EF55009D3C5B /* DisplayActivitiesSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayActivitiesSchedule.swift; sourceTree = "<group>"; };
@@ -162,22 +144,12 @@
 		C34F24061F84A66A00DBF3A1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C31541CA1FD791E300B94DF8 /* Logo@3x.png */,
+				C38B72C01FE08C4800498B6E /* floor1.png */,
+				C38B72C31FE08C4800498B6E /* floor2.png */,
+				C38B72C41FE08C4800498B6E /* floor3.png */,
+				C38B72C21FE08C4800498B6E /* floor4.png */,
+				C38B72C11FE08C4800498B6E /* floor5.png */,
 				C3F6FEC31FD7388D00919BFC /* logo_trans.png */,
-				C3F6FEC11FD733EF00919BFC /* LargeBKGD.jpg */,
-				C3B95DE81FC4C3C300754E8D /* Events_Icon.jpg */,
-				C3B95DE51FC4C3C300754E8D /* Live_Stream.jpg */,
-				C3B95DEA1FC4C3C400754E8D /* Logo_Header.jpg */,
-				C3B95DE41FC4C3C300754E8D /* Map_Icon.jpg */,
-				C3B95DE91FC4C3C400754E8D /* Mentor_Hub.jpg */,
-				C3B95DE61FC4C3C300754E8D /* Schedule_Icon.jpg */,
-				C3B95DE71FC4C3C300754E8D /* Social_Media.jpg */,
-				C3489D571FC27AF8000DE0E1 /* background.png */,
-				C303C6DB1FBD68E1003E0235 /* sel_floor1.png */,
-				C303C6DD1FBD68E1003E0235 /* sel_floor2.png */,
-				C303C6DE1FBD68E2003E0235 /* sel_floor3.png */,
-				C303C6DC1FBD68E1003E0235 /* sel_floor4.png */,
-				C303C6DF1FBD68E2003E0235 /* sel_floor5.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -222,6 +194,7 @@
 				C3EB68591FCEAAFD0048CFC8 /* FirstByteViewController.swift */,
 				C3EB685B1FCEAC220048CFC8 /* DisplayFirstByteSchedule.swift */,
 				C3EB68571FCE82AD0048CFC8 /* MapViewController.swift */,
+				C38B72CA1FE09B1200498B6E /* DisplayMap.swift */,
 				C3EB685D1FCEB8BB0048CFC8 /* SocialMediaViewController.swift */,
 				C3EAF8341F81FDED0095F5EC /* Main.storyboard */,
 				C3EAF8371F81FDED0095F5EC /* Assets.xcassets */,
@@ -380,26 +353,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C303C6E21FBD68E2003E0235 /* sel_floor2.png in Resources */,
+				C38B72C51FE08C4800498B6E /* floor1.png in Resources */,
 				C3EAF83B1F81FDED0095F5EC /* LaunchScreen.storyboard in Resources */,
-				C3B95DEF1FC4C3C400754E8D /* Events_Icon.jpg in Resources */,
-				C303C6E31FBD68E2003E0235 /* sel_floor3.png in Resources */,
-				C3B95DF11FC4C3C400754E8D /* Logo_Header.jpg in Resources */,
-				C303C6E01FBD68E2003E0235 /* sel_floor1.png in Resources */,
-				C3B95DEC1FC4C3C400754E8D /* Live_Stream.jpg in Resources */,
-				C3B95DED1FC4C3C400754E8D /* Schedule_Icon.jpg in Resources */,
-				C303C6E41FBD68E2003E0235 /* sel_floor5.png in Resources */,
-				C3F6FEC21FD733EF00919BFC /* LargeBKGD.jpg in Resources */,
-				C3489D5E1FC27AF9000DE0E1 /* background.png in Resources */,
+				C38B72C61FE08C4800498B6E /* floor5.png in Resources */,
+				C38B72C71FE08C4800498B6E /* floor4.png in Resources */,
 				C3EAF8381F81FDED0095F5EC /* Assets.xcassets in Resources */,
-				C303C6E11FBD68E2003E0235 /* sel_floor4.png in Resources */,
 				C311920A1FD4A1310098F054 /* GoogleService-Info.plist in Resources */,
-				C31541CB1FD791E300B94DF8 /* Logo@3x.png in Resources */,
-				C3B95DF01FC4C3C400754E8D /* Mentor_Hub.jpg in Resources */,
 				C3EAF8361F81FDED0095F5EC /* Main.storyboard in Resources */,
 				C3F6FEC41FD7388E00919BFC /* logo_trans.png in Resources */,
-				C3B95DEE1FC4C3C400754E8D /* Social_Media.jpg in Resources */,
-				C3B95DEB1FC4C3C400754E8D /* Map_Icon.jpg in Resources */,
+				C38B72C91FE08C4800498B6E /* floor3.png in Resources */,
+				C38B72C81FE08C4800498B6E /* floor2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +536,7 @@
 				C3EB68581FCE82AD0048CFC8 /* MapViewController.swift in Sources */,
 				C3F71AB31FB4EF09009D3C5B /* ActivitiesViewController.swift in Sources */,
 				C3F71AB51FB4EF55009D3C5B /* DisplayActivitiesSchedule.swift in Sources */,
+				C38B72CB1FE09B1200498B6E /* DisplayMap.swift in Sources */,
 				C3489D531FC2238A000DE0E1 /* DisplayMasterSchedule.swift in Sources */,
 				C30A289D1FB598C800452932 /* EventViewController.swift in Sources */,
 			);
