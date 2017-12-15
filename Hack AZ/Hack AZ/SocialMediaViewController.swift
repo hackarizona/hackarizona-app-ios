@@ -13,34 +13,38 @@ class SocialMediaViewController: UIViewController, UITableViewDelegate, UITableV
     let cellContent = ["Facebook","Instagram","Twitter","Snapchat"]
     
     func openFacebook() {
-        if let facebookApp = URL(string: "fb://profile/1530662117173581"){
-            UIApplication.shared.open(facebookApp, options: [:], completionHandler: nil)
+        let facebookApp = URL(string: "fb://profile/1530662117173581")
+        if UIApplication.shared.canOpenURL(facebookApp!){
+            UIApplication.shared.open(facebookApp!, options: [:], completionHandler: nil)
         } else if let facebookURL = URL(string: "https://www.facebook.com/hackarizona") {
             UIApplication.shared.open(facebookURL, options: [:], completionHandler: nil)
         }
     }
     
     func openInstagram() {
-        if let instagramApp = URL(string: "instagram://user?username=hackarizona"){
-            UIApplication.shared.open(instagramApp, options: [:], completionHandler: nil)
+        let instagramApp = URL(string: "instagram://user?username=hackarizona")
+        if UIApplication.shared.canOpenURL(instagramApp!){
+            UIApplication.shared.open(instagramApp!, options: [:], completionHandler: nil)
         } else if let instagramURL = URL(string: "https://www.instagram.com/hackarizona/") {
             UIApplication.shared.open(instagramURL, options: [:], completionHandler: nil)
         }
     }
     
     func openTwitter() {
-        if let twitterApp = URL(string: "twitter:///user?screen_name=hack_arizona"){
-            UIApplication.shared.open(twitterApp, options: [:], completionHandler: nil)
+        let twitterApp = URL(string: "twitter:///user?screen_name=hack_arizona")
+        if UIApplication.shared.canOpenURL(twitterApp!){
+            UIApplication.shared.open(twitterApp!, options: [:], completionHandler: nil)
         } else if let twitterURL = URL(string: "https://twitter.com/hack_arizona") {
             UIApplication.shared.open(twitterURL, options: [:], completionHandler: nil)
         }
     }
 
     func openSnapchat() {
-        if let snapchatApp = URL(string: "snapchat://add/hackarizona"){
-            UIApplication.shared.open(snapchatApp, options: [:], completionHandler: nil)
+        let snapchatApp = URL(string: "snapchat://add/hackarizona")
+        if UIApplication.shared.canOpenURL(snapchatApp!) {
+            UIApplication.shared.open(snapchatApp!, options: [:], completionHandler: nil)
         } else {
-            let errorAlert = UIAlertController(title: "Error!", message: "Could not load Snapchat :(", preferredStyle: UIAlertControllerStyle.alert)
+            let errorAlert = UIAlertController(title: "Error!", message: "Could not open Snapchat. Please make sure Snapchat is installed and you are signed in.", preferredStyle: UIAlertControllerStyle.alert)
             errorAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(errorAlert, animated: true, completion: nil)
         }
