@@ -94,6 +94,9 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = daySelected.uppercased()
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(66)/255.0, green: CGFloat(69)/255.0, blue: CGFloat(120)/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white ]
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         getEventData()
         sleep(1)
     }

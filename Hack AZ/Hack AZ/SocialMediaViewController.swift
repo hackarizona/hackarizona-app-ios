@@ -50,7 +50,6 @@ class SocialMediaViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
     }

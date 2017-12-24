@@ -14,6 +14,13 @@
 		C319528A1FE38D90004D2B2D /* Login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31952891FE38D90004D2B2D /* Login@2x.png */; };
 		C31D84DD1F85F8FC00CFA774 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */; };
 		C3489D531FC2238A000DE0E1 /* DisplayMasterSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3489D521FC2238A000DE0E1 /* DisplayMasterSchedule.swift */; };
+		C38626661FEF1397001585C0 /* logo_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C386265F1FEF1396001585C0 /* logo_icon.jpeg */; };
+		C38626671FEF1397001585C0 /* schedule_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C38626601FEF1396001585C0 /* schedule_icon.jpeg */; };
+		C38626681FEF1397001585C0 /* events_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C38626611FEF1396001585C0 /* events_icon.jpeg */; };
+		C38626691FEF1397001585C0 /* mentor_hub_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C38626621FEF1397001585C0 /* mentor_hub_icon.jpeg */; };
+		C386266A1FEF1397001585C0 /* live_stream_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C38626631FEF1397001585C0 /* live_stream_icon.jpeg */; };
+		C386266B1FEF1397001585C0 /* map_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C38626641FEF1397001585C0 /* map_icon.jpeg */; };
+		C386266C1FEF1397001585C0 /* social_media_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C38626651FEF1397001585C0 /* social_media_icon.jpeg */; };
 		C38B72C51FE08C4800498B6E /* floor1.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C01FE08C4800498B6E /* floor1.png */; };
 		C38B72C61FE08C4800498B6E /* floor5.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C11FE08C4800498B6E /* floor5.png */; };
 		C38B72C71FE08C4800498B6E /* floor4.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C21FE08C4800498B6E /* floor4.png */; };
@@ -69,6 +76,13 @@
 		C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		C3489D521FC2238A000DE0E1 /* DisplayMasterSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMasterSchedule.swift; sourceTree = "<group>"; };
 		C37AD77267F98C165E675341 /* Pods-Hack AZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack AZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack AZUITests/Pods-Hack AZUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C386265F1FEF1396001585C0 /* logo_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo_icon.jpeg; sourceTree = "<group>"; };
+		C38626601FEF1396001585C0 /* schedule_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = schedule_icon.jpeg; sourceTree = "<group>"; };
+		C38626611FEF1396001585C0 /* events_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = events_icon.jpeg; sourceTree = "<group>"; };
+		C38626621FEF1397001585C0 /* mentor_hub_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mentor_hub_icon.jpeg; sourceTree = "<group>"; };
+		C38626631FEF1397001585C0 /* live_stream_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = live_stream_icon.jpeg; sourceTree = "<group>"; };
+		C38626641FEF1397001585C0 /* map_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map_icon.jpeg; sourceTree = "<group>"; };
+		C38626651FEF1397001585C0 /* social_media_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = social_media_icon.jpeg; sourceTree = "<group>"; };
 		C38B72C01FE08C4800498B6E /* floor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor1.png; sourceTree = "<group>"; };
 		C38B72C11FE08C4800498B6E /* floor5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor5.png; sourceTree = "<group>"; };
 		C38B72C21FE08C4800498B6E /* floor4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor4.png; sourceTree = "<group>"; };
@@ -146,6 +160,13 @@
 		C34F24061F84A66A00DBF3A1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C38626611FEF1396001585C0 /* events_icon.jpeg */,
+				C38626631FEF1397001585C0 /* live_stream_icon.jpeg */,
+				C386265F1FEF1396001585C0 /* logo_icon.jpeg */,
+				C38626641FEF1397001585C0 /* map_icon.jpeg */,
+				C38626621FEF1397001585C0 /* mentor_hub_icon.jpeg */,
+				C38626601FEF1396001585C0 /* schedule_icon.jpeg */,
+				C38626651FEF1397001585C0 /* social_media_icon.jpeg */,
 				C31952891FE38D90004D2B2D /* Login@2x.png */,
 				C38B72C01FE08C4800498B6E /* floor1.png */,
 				C38B72C31FE08C4800498B6E /* floor2.png */,
@@ -357,13 +378,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C38B72C51FE08C4800498B6E /* floor1.png in Resources */,
+				C38626671FEF1397001585C0 /* schedule_icon.jpeg in Resources */,
 				C3EAF83B1F81FDED0095F5EC /* LaunchScreen.storyboard in Resources */,
 				C38B72C61FE08C4800498B6E /* floor5.png in Resources */,
+				C38626661FEF1397001585C0 /* logo_icon.jpeg in Resources */,
+				C386266B1FEF1397001585C0 /* map_icon.jpeg in Resources */,
 				C38B72C71FE08C4800498B6E /* floor4.png in Resources */,
 				C319528A1FE38D90004D2B2D /* Login@2x.png in Resources */,
 				C3EAF8381F81FDED0095F5EC /* Assets.xcassets in Resources */,
 				C311920A1FD4A1310098F054 /* GoogleService-Info.plist in Resources */,
+				C38626691FEF1397001585C0 /* mentor_hub_icon.jpeg in Resources */,
+				C38626681FEF1397001585C0 /* events_icon.jpeg in Resources */,
 				C3EAF8361F81FDED0095F5EC /* Main.storyboard in Resources */,
+				C386266A1FEF1397001585C0 /* live_stream_icon.jpeg in Resources */,
+				C386266C1FEF1397001585C0 /* social_media_icon.jpeg in Resources */,
 				C3F6FEC41FD7388E00919BFC /* logo_trans.png in Resources */,
 				C38B72C91FE08C4800498B6E /* floor3.png in Resources */,
 				C38B72C81FE08C4800498B6E /* floor2.png in Resources */,
