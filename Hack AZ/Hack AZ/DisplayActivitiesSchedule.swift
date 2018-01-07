@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Alamofire
+import Alamofire_Synchronous
+import SwiftyJSON
 
 class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var activityIndicator = UIActivityIndicatorView.init()
     var activityName = [String]()
     var activityTime = [String]()
     var activityLocation = [String]()
@@ -17,35 +21,30 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
     var daySelected = ""
     let url = URL(string: "http://hackarizona.org/activities.json")!
     
-    private func eventDataHelper(day: String!, jsonFile: [String : Any]?) {
-        if let jsonData = (jsonFile![day] as? NSArray) {
-            for index in 0...(jsonData.count-1) {
-                self.activityName.append((jsonData[index] as? NSDictionary)?["activity"] as! String)
-                self.activityTime.append((jsonData[index] as? NSDictionary)?["time"] as! String)
-                self.activityLocation.append((jsonData[index] as? NSDictionary)?["location"] as! String)
-                self.first_description.append((jsonData[index] as? NSDictionary)?["description"] as! String)
-            }
+    private func eventDataHelper(day: String!, jsonfile: JSON!) {
+        for index in 0...(jsonfile[day].count-1){
+            self.activityName.append(jsonfile[day][index]["activity"].string!)
+            self.activityTime.append(jsonfile[day][index]["time"].string!)
+            self.activityLocation.append(jsonfile[day][index]["location"].string!)
+            self.first_description.append(jsonfile[day][index]["description"].string!)
         }
     }
     
     func getEventData() -> Void{
-        // Setup the url for hackAZ
-        let request = URLRequest(url: url, cachePolicy: URLRequest.CachePolicy.reloadIgnoringCacheData, timeoutInterval: 60.0)
-        let task = URLSession.shared.dataTask(with: request){ (data, response, error) in
-            if error != nil {
-                print(error!)
-            }else{
-                if let urlContent = data {
-                    do {
-                        let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options:JSONSerialization.ReadingOptions.mutableContainers) as? [String: Any]
-                        self.eventDataHelper(day: self.daySelected, jsonFile: jsonResult)
-                    } catch {
-                        print("JSON Processing Failed!")
-                    }
-                }
-            }
+        // Disable caching
+        URLCache.shared.removeAllCachedResponses()
+        
+        // Make request with Alamofire
+        let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate().responseJSON()
+        switch response.result {
+        case .success(let value):
+            let json = JSON(value)
+            self.eventDataHelper(day: self.daySelected, jsonfile: json)
+            break
+        case .failure(let error):
+            print(error)
+            break
         }
-        task.resume()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,18 +54,26 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "mainCell")
-        cell.contentView.backgroundColor = UIColor.black
-        cell.textLabel?.textColor = UIColor.white
-        cell.textLabel?.text = activityName[indexPath.row]
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
-        cell.detailTextLabel?.numberOfLines = 0
-        cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        cell.detailTextLabel?.text = "Time: " + activityTime[indexPath.row] + "\nLocation: " + activityLocation[indexPath.row]
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
-        //cell.detailTextLabel?.textColor = UIColor.black
-        cell.detailTextLabel?.textColor = UIColor(red: CGFloat(110)/255.0, green: CGFloat(115)/255.0, blue: CGFloat(180)/255.0, alpha: 1.0)
+        if(activityName[indexPath.row] == ""){
+            cell.contentView.backgroundColor = UIColor.black
+            cell.textLabel?.textColor = UIColor.white
+            cell.textLabel?.text = "There is currently no activity scheduled for this day"
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+        }else{
+            cell.contentView.backgroundColor = UIColor.black
+            cell.textLabel?.textColor = UIColor.white
+            cell.textLabel?.text = activityName[indexPath.row]
+            cell.textLabel?.numberOfLines = 0
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+            cell.detailTextLabel?.numberOfLines = 0
+            cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            cell.detailTextLabel?.text = "Time: " + activityTime[indexPath.row] + "\nLocation: " + activityLocation[indexPath.row]
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
+            cell.detailTextLabel?.textColor = UIColor(red: CGFloat(110)/255.0, green: CGFloat(115)/255.0, blue: CGFloat(180)/255.0, alpha: 1.0)
+        }
         
         return cell
     }
@@ -77,15 +84,9 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
         for id in 0...(self.activityName.count-1) {
             if (id == rowPressed){
                 let des = first_description[id]
-                if des == "" {
-                    let alert = UIAlertController(title: "Description", message: "Description is unavailable at this time" , preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }else{
-                    let alert = UIAlertController(title: "Description", message: des , preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
+                let alert = UIAlertController(title: "Description", message: des , preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
                 break
             }
         }
@@ -97,10 +98,23 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
         self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(66)/255.0, green: CGFloat(69)/255.0, blue: CGFloat(120)/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white ]
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+        activityIndicator.startAnimating()
         getEventData()
-        sleep(1)
+        activityIndicator.stopAnimating()
     }
     
+    func startActivityIndicator(){
+        self.activityIndicator = UIActivityIndicatorView()
+        activityIndicator.activityIndicatorViewStyle = .whiteLarge
+        activityIndicator.center = view.center
+        activityIndicator.color = UIColor.white
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
+    
+    func stopActivityIndicator(){
+        self.activityIndicator.stopAnimating()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

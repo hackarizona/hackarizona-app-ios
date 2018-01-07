@@ -21,9 +21,37 @@ class DisplayMap: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         self.scrollView.minimumZoomScale = 1.0
         self.scrollView.maximumZoomScale = 10.0
-        if (floor > 0){
+        if (floor == 1){
             let floorToView = String(floor)
-            self.title = "FLOOR \(floorToView)".uppercased()
+            self.title = "BASEMENT".uppercased()
+            let floor_image:UIImage! = UIImage(named: "floor\(floorToView).png")
+            self.imageView.image = floor_image
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(displayFloorDetails))
+            
+        }else if (floor == 2){
+            let floorToView = String(floor)
+            self.title = "MAIN FLOOR".uppercased()
+            let floor_image:UIImage! = UIImage(named: "floor\(floorToView).png")
+            self.imageView.image = floor_image
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(displayFloorDetails))
+            
+        }else if (floor == 3){
+            let floorToView = String(floor)
+            self.title = "FLOOR 3".uppercased()
+            let floor_image:UIImage! = UIImage(named: "floor\(floorToView).png")
+            self.imageView.image = floor_image
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(displayFloorDetails))
+            
+        }else if (floor == 4){
+            let floorToView = String(floor)
+            self.title = "RAYTHEON FLOOR".uppercased()
+            let floor_image:UIImage! = UIImage(named: "floor\(floorToView).png")
+            self.imageView.image = floor_image
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(displayFloorDetails))
+            
+        }else if (floor == 5){
+            let floorToView = String(floor)
+            self.title = "FLOOR 5".uppercased()
             let floor_image:UIImage! = UIImage(named: "floor\(floorToView).png")
             self.imageView.image = floor_image
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(displayFloorDetails))
@@ -48,13 +76,15 @@ class DisplayMap: UIViewController, UIScrollViewDelegate {
     @objc func displayFloorDetails(sender: UIBarButtonItem) {
         var details = ""
         if(floor == 1){
-            details = "Hacking\nActivities"
+            details = "MLH Hardware Lab\nHacking"
         }else if(floor == 2){
-            details = "Hacking\nSponsors\nActivities\nFood"
-        }else if(floor == 3 || floor == 4){
-            details = "Hacking\nSponsors\nActivities"
-        }else {
-            details = "Hacking\nSponsors\nActivities\nTech Talks"
+            details = "Hacking\nSponsors\nActivities\nFood (outside)\nLive Stream Studio"
+        }else if(floor == 3){
+            details = "firstByte Workshops\nHacking"
+        }else if(floor == 4){
+            details = "Raytheon\nHacking"
+        }else if(floor == 5) {
+            details = "Jacobs Engineering\nTech Talks\nHacking"
         }
         
         let alert = UIAlertController(title: "On This Floor", message: details , preferredStyle: .alert)
