@@ -17,16 +17,16 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         return cellContent.count
     }
     
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
+        let cellPressed = tableView.cellForRow(at: indexPath)
         if rowPressed == 0{
-            self.performSegue(withIdentifier: "FloorSegue1", sender: self)
+            self.performSegue(withIdentifier: "FloorSegue1", sender: cellPressed)
         }else if rowPressed == 1 {
-            self.performSegue(withIdentifier: "FloorSegue2", sender: self)
+            self.performSegue(withIdentifier: "FloorSegue2", sender: cellPressed)
         }else if rowPressed == 2 {
-            self.performSegue(withIdentifier: "FloorSegue3", sender: self)
+            self.performSegue(withIdentifier: "FloorSegue3", sender: cellPressed)
         }else if rowPressed == 3 {
             self.performSegue(withIdentifier: "FloorSegue4", sender: self)
         }else if rowPressed == 4 {

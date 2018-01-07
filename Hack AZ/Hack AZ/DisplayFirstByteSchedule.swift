@@ -56,7 +56,7 @@ class DisplayFirstByteSchedule: UIViewController, UITableViewDelegate, UITableVi
         if(workshop[indexPath.row] == ""){
             cell.contentView.backgroundColor = UIColor.black
             cell.textLabel?.textColor = UIColor.white
-            cell.textLabel?.text = "There is currently no workshop schedule for this day."
+            cell.textLabel?.text = "There is currently no firstByte workshop scheduled for this day."
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
