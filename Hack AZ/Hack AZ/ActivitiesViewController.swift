@@ -19,12 +19,13 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
+        let cellPressed = tableView.cellForRow(at: indexPath)
         if rowPressed == 0{
-             self.performSegue(withIdentifier: "ActivitiesFridaySegue", sender: self)
+             self.performSegue(withIdentifier: "ActivitiesFridaySegue", sender: cellPressed)
         }else if rowPressed == 1 {
-            self.performSegue(withIdentifier: "ActivitiesSaturdaySegue", sender: self)
+            self.performSegue(withIdentifier: "ActivitiesSaturdaySegue", sender: cellPressed)
         }else if rowPressed == 2 {
-            self.performSegue(withIdentifier: "ActivitiesSundaySegue", sender: self)
+            self.performSegue(withIdentifier: "ActivitiesSundaySegue", sender: cellPressed)
         }
     }
     

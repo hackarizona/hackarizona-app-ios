@@ -19,12 +19,13 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
+        let cellPressed = tableView.cellForRow(at: indexPath)
         if rowPressed == 0{
-            self.performSegue(withIdentifier: "FirstByteFridaySegue", sender: self)
+            self.performSegue(withIdentifier: "FirstByteFridaySegue", sender: cellPressed)
         }else if rowPressed == 1 {
-            self.performSegue(withIdentifier: "FirstByteSaturdaySegue", sender: self)
+            self.performSegue(withIdentifier: "FirstByteSaturdaySegue", sender: cellPressed)
         }else if rowPressed == 2 {
-            self.performSegue(withIdentifier: "FirstByteSundaySegue", sender: self)
+            self.performSegue(withIdentifier: "FirstByteSundaySegue", sender: cellPressed)
         }
     }
     

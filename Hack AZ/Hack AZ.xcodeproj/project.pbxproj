@@ -21,6 +21,8 @@
 		C35887522001CB1900F192C5 /* g_maps_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358874C2001CB1900F192C5 /* g_maps_icon.jpeg */; };
 		C35887542001CC4900F192C5 /* logo_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C35887532001CC4900F192C5 /* logo_icon.jpeg */; };
 		C35887562001CD7300F192C5 /* g_social_media_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C35887552001CD7300F192C5 /* g_social_media_icon.jpeg */; };
+		C3588758200225F100F192C5 /* LiveStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3588757200225F100F192C5 /* LiveStreamViewController.swift */; };
+		C358875A2002269100F192C5 /* DisplayLiveStreamSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35887592002269100F192C5 /* DisplayLiveStreamSchedule.swift */; };
 		C38B72C51FE08C4800498B6E /* floor1.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C01FE08C4800498B6E /* floor1.png */; };
 		C38B72C61FE08C4800498B6E /* floor5.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C11FE08C4800498B6E /* floor5.png */; };
 		C38B72C71FE08C4800498B6E /* floor4.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C21FE08C4800498B6E /* floor4.png */; };
@@ -82,6 +84,8 @@
 		C358874C2001CB1900F192C5 /* g_maps_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = g_maps_icon.jpeg; sourceTree = "<group>"; };
 		C35887532001CC4900F192C5 /* logo_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo_icon.jpeg; sourceTree = "<group>"; };
 		C35887552001CD7300F192C5 /* g_social_media_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = g_social_media_icon.jpeg; sourceTree = "<group>"; };
+		C3588757200225F100F192C5 /* LiveStreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamViewController.swift; sourceTree = "<group>"; };
+		C35887592002269100F192C5 /* DisplayLiveStreamSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLiveStreamSchedule.swift; sourceTree = "<group>"; };
 		C37AD77267F98C165E675341 /* Pods-Hack AZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack AZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack AZUITests/Pods-Hack AZUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C38B72C01FE08C4800498B6E /* floor1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor1.png; sourceTree = "<group>"; };
 		C38B72C11FE08C4800498B6E /* floor5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor5.png; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				C3F71AB41FB4EF55009D3C5B /* DisplayActivitiesSchedule.swift */,
 				C3EB68591FCEAAFD0048CFC8 /* FirstByteViewController.swift */,
 				C3EB685B1FCEAC220048CFC8 /* DisplayFirstByteSchedule.swift */,
+				C3588757200225F100F192C5 /* LiveStreamViewController.swift */,
+				C35887592002269100F192C5 /* DisplayLiveStreamSchedule.swift */,
 				C3EB68571FCE82AD0048CFC8 /* MapViewController.swift */,
 				C38B72CA1FE09B1200498B6E /* DisplayMap.swift */,
 				C3EB685D1FCEB8BB0048CFC8 /* SocialMediaViewController.swift */,
@@ -561,10 +567,12 @@
 				C3A979431FB01EC80002BEB5 /* TechTalksViewController.swift in Sources */,
 				C3EB685A1FCEAAFD0048CFC8 /* FirstByteViewController.swift in Sources */,
 				C31D84DD1F85F8FC00CFA774 /* ScheduleViewController.swift in Sources */,
+				C3588758200225F100F192C5 /* LiveStreamViewController.swift in Sources */,
 				C3EB685C1FCEAC220048CFC8 /* DisplayFirstByteSchedule.swift in Sources */,
 				C3EAF8331F81FDED0095F5EC /* MainViewController.swift in Sources */,
 				C3EAF8311F81FDED0095F5EC /* AppDelegate.swift in Sources */,
 				C3EB685E1FCEB8BB0048CFC8 /* SocialMediaViewController.swift in Sources */,
+				C358875A2002269100F192C5 /* DisplayLiveStreamSchedule.swift in Sources */,
 				C3EB68581FCE82AD0048CFC8 /* MapViewController.swift in Sources */,
 				C3F71AB31FB4EF09009D3C5B /* ActivitiesViewController.swift in Sources */,
 				C3F71AB51FB4EF55009D3C5B /* DisplayActivitiesSchedule.swift in Sources */,

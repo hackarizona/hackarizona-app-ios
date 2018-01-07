@@ -10,7 +10,7 @@ import UIKit
 
 class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let cellContent = ["\u{1F468}\u{200D}\u{1F4BB}  Tech Talks", "\u{1F3C3}\u{200D}\u{2642}\u{FE0F}  Activites", "\u{1F469}\u{200D}\u{1F3EB}  firstByte"]
+    let cellContent = ["\u{1F468}\u{200D}\u{1F4BB}  Tech Talks", "\u{1F3C3}\u{200D}\u{2642}\u{FE0F}  Activites", "\u{1F469}\u{200D}\u{1F3EB}  firstByte","\u{1F4FA}  Live Streams"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
@@ -20,13 +20,14 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
         let cellPressed = tableView.cellForRow(at: indexPath)
-        
         if rowPressed == 0{
             self.performSegue(withIdentifier: "TechTalksSegue", sender: cellPressed)
         }else if rowPressed == 1 {
             self.performSegue(withIdentifier: "ActivitiesSegue", sender: cellPressed)
         }else if rowPressed == 2 {
             self.performSegue(withIdentifier: "FirstByteSegue", sender: cellPressed)
+        }else if rowPressed == 3 {
+            self.performSegue(withIdentifier: "LiveStreamSegue", sender: cellPressed)
         }
     }
     
