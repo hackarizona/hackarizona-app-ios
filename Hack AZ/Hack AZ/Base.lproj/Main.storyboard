@@ -1287,9 +1287,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O1o-C6-fhm">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.2005615094" green="0.20987921640000001" blue="0.36791002690000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.71704317930000006" green="0.47717900839999999" blue="0.99491985100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1307,8 +1307,6 @@
         <image name="logo_trans.png" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dZx-Dl-MOr"/>
-        <segue reference="NFO-bw-aGM"/>
         <segue reference="K3Y-1A-ERI"/>
         <segue reference="YWi-Fd-5Fu"/>
         <segue reference="7O7-4K-fNR"/>

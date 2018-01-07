@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 import UserNotifications
+import Alamofire
+import Alamofire_Synchronous
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {

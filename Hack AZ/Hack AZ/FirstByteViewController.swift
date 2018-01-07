@@ -11,18 +11,6 @@ import UIKit
 class FirstByteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let cellContent = ["Friday","Saturday","Sunday"]
-    let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    private func goToSegue(segue: String!, cell: UITableViewCell?) {
-        let dismissAlert = DispatchTime.now() + 0.5
-        DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-            self.activityIndicator.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.performSegue(withIdentifier: segue, sender: cell)
-            }
-        }
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
@@ -31,23 +19,12 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
-        let cellPressed = tableView.cellForRow(at: indexPath)
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        self.view.addSubview(activityIndicator)
         if rowPressed == 0{
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "FirstByteFridaySegue", cell: cellPressed)
+            self.performSegue(withIdentifier: "FirstByteFridaySegue", sender: self)
         }else if rowPressed == 1 {
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "FirstByteSaturdaySegue", cell: cellPressed)
+            self.performSegue(withIdentifier: "FirstByteSaturdaySegue", sender: self)
         }else if rowPressed == 2 {
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "FirstByteSundaySegue", cell: cellPressed)
+            self.performSegue(withIdentifier: "FirstByteSundaySegue", sender: self)
         }
     }
     

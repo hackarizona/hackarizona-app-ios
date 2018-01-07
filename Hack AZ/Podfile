@@ -2,6 +2,8 @@ project 'Hack AZ.xcodeproj'
 
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '11.0'
 
 target 'Hack AZ' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -10,6 +12,9 @@ target 'Hack AZ' do
   # Pods for Hack AZ
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'Alamofire', '~> 4.5'
+  pod 'SwiftyJSON'
+  pod 'Alamofire-Synchronous', '~> 4.0'
 
   target 'Hack AZTests' do
     inherit! :search_paths

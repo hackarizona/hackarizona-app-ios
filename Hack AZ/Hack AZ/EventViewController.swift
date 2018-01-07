@@ -10,7 +10,7 @@ import UIKit
 
 class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let cellContent = ["\u{1F468}\u{200D}\u{1F4BB}  Tech Talks", "\u{1F3C3}\u{200D}\u{2642}\u{FE0F}  Activites", "\u{1F469}\u{200D}\u{1F3EB}  First Byte"]
+    let cellContent = ["\u{1F468}\u{200D}\u{1F4BB}  Tech Talks", "\u{1F3C3}\u{200D}\u{2642}\u{FE0F}  Activites", "\u{1F469}\u{200D}\u{1F3EB}  firstByte"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count

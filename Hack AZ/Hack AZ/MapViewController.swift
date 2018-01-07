@@ -10,62 +10,38 @@ import UIKit
 
 class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let cellContent = ["Floor 1","Floor 2","Floor 3", "Floor 4", "Floor 5"]
+    let cellContent = ["Basement","Main Floor","Floor 3", "Raytheon Floor", "Jacobs Floor"]
     let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
     }
     
-    private func goToSegue(segue: String!, cell: UITableViewCell?) {
-        let dismissAlert = DispatchTime.now() + 0.5
-        DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-            self.activityIndicator.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.performSegue(withIdentifier: segue, sender: cell)
-            }
-        }
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
-        let cellPressed = tableView.cellForRow(at: indexPath)
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        self.view.addSubview(activityIndicator)
         if rowPressed == 0{
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "FloorSegue1", cell: cellPressed)
+            self.performSegue(withIdentifier: "FloorSegue1", sender: self)
         }else if rowPressed == 1 {
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "FloorSegue2", cell: cellPressed)
+            self.performSegue(withIdentifier: "FloorSegue2", sender: self)
         }else if rowPressed == 2 {
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "FloorSegue3", cell: cellPressed)
+            self.performSegue(withIdentifier: "FloorSegue3", sender: self)
         }else if rowPressed == 3 {
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "FloorSegue4", cell: cellPressed)
+            self.performSegue(withIdentifier: "FloorSegue4", sender: self)
         }else if rowPressed == 4 {
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "FloorSegue5", cell: cellPressed)
+            self.performSegue(withIdentifier: "FloorSegue5", sender: self)
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
-        //        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
         cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
-        cell.textLabel?.text = cellContent[indexPath.row]
+        cell.textLabel?.text = cellContent[indexPath.row].uppercased()
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         return cell
         

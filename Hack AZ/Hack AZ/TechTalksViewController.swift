@@ -11,18 +11,6 @@ import UIKit
 class TechTalksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let cellContent = ["Friday","Saturday","Sunday"]
-    let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    private func goToSegue(segue: String!, cell: UITableViewCell?) {
-        let dismissAlert = DispatchTime.now() + 0.5
-        DispatchQueue.main.asyncAfter(deadline: dismissAlert) {
-            self.activityIndicator.stopAnimating()
-            UIApplication.shared.endIgnoringInteractionEvents()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.performSegue(withIdentifier: segue, sender: cell)
-            }
-        }
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
@@ -31,30 +19,18 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
-        let cellPressed = tableView.cellForRow(at: indexPath)
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        self.view.addSubview(activityIndicator)
         if rowPressed == 0{
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "TTFridaySegue", cell: cellPressed)
+            self.performSegue(withIdentifier: "TTFridaySegue", sender: self)
         }else if rowPressed == 1 {
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "TTSaturdaySegue", cell: cellPressed)
+            self.performSegue(withIdentifier: "TTSaturdaySegue", sender: self)
         }else if rowPressed == 2 {
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
-            self.goToSegue(segue: "TTSundaySegue", cell: cellPressed)
+            self.performSegue(withIdentifier: "TTSundaySegue", sender: self)
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
-//        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
         cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor(red: CGFloat(149)/255.0, green: CGFloat(127)/255.0, blue: CGFloat(197)/255.0, alpha: 1.0)
         cell.textLabel?.text = cellContent[indexPath.row]
