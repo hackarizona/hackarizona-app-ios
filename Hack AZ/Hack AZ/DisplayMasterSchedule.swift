@@ -21,36 +21,14 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
     var location = [String]()
     var first_description = [String]()
     var daySelected = ""
-    let url = URL(string: "http://hackarizona.org/masterschedule.json")!
     
-    private func eventDataHelper(day: String!, jsonfile: JSON!) {
-        for index in 0...(jsonfile[day].count-1){
-            self.eventType.append(jsonfile[day][index]["eventtype"].string!)
-            self.eventTitle.append(jsonfile[day][index]["eventtitle"].string!)
-            self.eventSubTitle.append(jsonfile[day][index]["subtitle"].string!)
-            self.day.append(jsonfile[day][index]["day"].string!)
-            self.time.append(jsonfile[day][index]["time"].string!)
-            self.location.append(jsonfile[day][index]["location"].string!)
-            self.first_description.append(jsonfile[day][index]["description"].string!)
-        }
-    }
+    // phone screen size
+    var screenWidth: CGFloat = 0.0
+    var screenHeight: CGFloat = 0.0
     
-    func getEventData() -> Void{
-        // Disable caching
-        URLCache.shared.removeAllCachedResponses()
-        
-        // Make request with Alamofire
-        let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate().responseJSON()
-        switch response.result {
-        case .success(let value):
-            let json = JSON(value)
-            self.eventDataHelper(day: self.daySelected, jsonfile: json)
-            break
-        case .failure(let error):
-            print(error)
-            break
-        }
-    }
+    // Screen Size for formatting
+    let iPhoneSE_Width: CGFloat = 320
+    let iPhoneSE_Height: CGFloat = 568
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventType.count
@@ -104,12 +82,17 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
         
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.detailTextLabel?.text = "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
         cell.detailTextLabel?.textColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
+        if(screenWidth == iPhoneSE_Width && screenHeight == iPhoneSE_Height){
+            cell.textLabel?.font = UIFont(name: "Arial", size:19.0)
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size:15.0)
+        }else{
+            cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
+        }
         return cell
         
     }
@@ -135,12 +118,11 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white ]
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "KEY", style: .plain, target: self, action: #selector(emojiKey))
-        activityIndicator.startAnimating()
-        getEventData()
-        activityIndicator.stopAnimating()
-//        sleep(1)
-        // Do any additional setup after loading the view.
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        screenWidth = self.view.frame.width
+        screenHeight = self.view.frame.height
     }
+    
     @objc func emojiKey(sender: UIBarButtonItem) {
         let details = "\u{1F335}: Hack Arizona General Event\n\u{1F4FA}: Live Stream\n\u{2615}: Breakfast\n\u{1F96A}: Lunch\n\u{1F32E}: Dinner\n\u{1F3C3}\u{200D}\u{2642}\u{FE0F}: Activity\n\u{1F468}\u{200D}\u{1F4BB}: Tech Talk\n\u{1F469}\u{200D}\u{1F3EB}: firstByte Workshop\n\n Click on an event to view a description"
         let alert = UIAlertController(title: "KEY", message: details , preferredStyle: .alert)
@@ -150,19 +132,6 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func startActivityIndicator(){
-        self.activityIndicator = UIActivityIndicatorView()
-        activityIndicator.activityIndicatorViewStyle = .whiteLarge
-        activityIndicator.center = view.center
-        activityIndicator.color = UIColor.white
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-    }
-    
-    func stopActivityIndicator(){
-        self.activityIndicator.stopAnimating()
     }
     
     /*

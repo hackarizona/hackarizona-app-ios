@@ -10,7 +10,7 @@ import UIKit
 
 class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let cellContent = ["\u{1F468}\u{200D}\u{1F4BB}  Tech Talks", "\u{1F3C3}\u{200D}\u{2642}\u{FE0F}  Activites", "\u{1F469}\u{200D}\u{1F3EB}  firstByte","\u{1F4FA}  Live Streams"]
+    let cellContent = ["\u{1F468}\u{200D}\u{1F4BB}  Tech Talks", "\u{1F3C3}\u{200D}\u{2642}\u{FE0F}  Activites", "\u{1F469}\u{200D}\u{1F3EB}  firstByte","\u{1F4FA}  Live Stream"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
@@ -34,8 +34,6 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
-//        cell.contentView.backgroundColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
-//        cell.textLabel?.textColor = UIColor.white
         cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor(red: CGFloat(133)/255.0, green: CGFloat(127)/255.0, blue: CGFloat(198)/255.0, alpha: 1.0)
         cell.textLabel?.text = cellContent[indexPath.row]

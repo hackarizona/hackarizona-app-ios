@@ -19,33 +19,6 @@ class DisplayLiveStreamSchedule:UIViewController, UITableViewDelegate, UITableVi
     var location = [String]()
     var first_description = [String]()
     var daySelected = ""
-    let url = URL(string: "http://hackarizona.org/livestreamevents.json")!
-    
-    private func eventDataHelper(day: String!, jsonfile: JSON!) {
-        for index in 0...(jsonfile[day].count-1){
-            self.eventtitle.append(jsonfile[day][index]["title"].string!)
-            self.time.append(jsonfile[day][index]["time"].string!)
-            self.location.append(jsonfile[day][index]["location"].string!)
-            self.first_description.append(jsonfile[day][index]["description"].string!)
-        }
-    }
-    
-    func getEventData() -> Void{
-        // Disable caching
-        URLCache.shared.removeAllCachedResponses()
-        
-        // Make request with Alamofire
-        let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate().responseJSON()
-        switch response.result {
-        case .success(let value):
-            let json = JSON(value)
-            self.eventDataHelper(day: self.daySelected, jsonfile: json)
-            break
-        case .failure(let error):
-            print(error)
-            break
-        }
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventtitle.count
@@ -96,19 +69,8 @@ class DisplayLiveStreamSchedule:UIViewController, UITableViewDelegate, UITableVi
         self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(66)/255.0, green: CGFloat(69)/255.0, blue: CGFloat(120)/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white ]
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
-        activityIndicator.startAnimating()
-        getEventData()
-        activityIndicator.stopAnimating()
     }
     
-    func startActivityIndicator(){
-        self.activityIndicator = UIActivityIndicatorView()
-        activityIndicator.activityIndicatorViewStyle = .whiteLarge
-        activityIndicator.center = view.center
-        activityIndicator.color = UIColor.white
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

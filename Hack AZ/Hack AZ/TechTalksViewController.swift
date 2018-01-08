@@ -7,10 +7,51 @@
 //
 
 import UIKit
+import Alamofire
+import Alamofire_Synchronous
+import SwiftyJSON
 
 class TechTalksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let cellContent = ["Friday","Saturday","Sunday"]
+    var talkSponsor = [String]()
+    var talkName = [String]()
+    var talkTime = [String]()
+    var talkLocation = [String]()
+    var first_description = [String]()
+    var daySelected = ""
+    var timedOut = false
+    let url = URL(string: "http://hackarizona.org/techtalks.json")!
+    
+    private func eventDataHelper(day: String!, jsonfile: JSON!) {
+        for index in 0...(jsonfile[day].count-1){
+            self.talkSponsor.append(jsonfile[day][index]["sponsor"].string!)
+            self.talkName.append(jsonfile[day][index]["talk"].string!)
+            self.talkTime.append(jsonfile[day][index]["time"].string!)
+            self.talkLocation.append(jsonfile[day][index]["location"].string!)
+            self.first_description.append(jsonfile[day][index]["description"].string!)
+        }
+    }
+    
+    func getEventData() -> Void{
+        // Disable caching
+        URLCache.shared.removeAllCachedResponses()
+        
+        // Make request with Alamofire
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
+        switch response.result {
+        case .success(let value):
+            let json = JSON(value)
+            self.eventDataHelper(day: self.daySelected, jsonfile: json)
+            break
+        case .failure(let error):
+            print(error)
+            if error._code == NSURLErrorTimedOut || error._code == NSURLErrorNotConnectedToInternet {
+                self.timedOut = true
+            }
+            break
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
@@ -20,12 +61,37 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
         let cellPressed = tableView.cellForRow(at: indexPath)
+        let alert = UIAlertController(title: "Error", message: "Network request timed out. Please try again" , preferredStyle: .alert)
         if rowPressed == 0{
-            self.performSegue(withIdentifier: "TTFridaySegue", sender: cellPressed)
+            self.daySelected = "friday"
+            getEventData()
+            if !timedOut {
+                self.performSegue(withIdentifier: "TTFridaySegue", sender: cellPressed)
+            }else {
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                timedOut = false
+            }
         }else if rowPressed == 1 {
-            self.performSegue(withIdentifier: "TTSaturdaySegue", sender: cellPressed)
+            self.daySelected = "saturday"
+            getEventData()
+            if !timedOut {
+                self.performSegue(withIdentifier: "TTSaturdaySegue", sender: cellPressed)
+            }else {
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                timedOut = false
+            }
         }else if rowPressed == 2 {
-            self.performSegue(withIdentifier: "TTSundaySegue", sender: cellPressed)
+            self.daySelected = "sunday"
+            getEventData()
+            if !timedOut {
+                self.performSegue(withIdentifier: "TTSundaySegue", sender: cellPressed)
+            }else {
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                timedOut = false
+            }
         }
     }
     
@@ -61,18 +127,26 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
         if segue.identifier == "TTFridaySegue" {
             let tempController = segue.destination as! UINavigationController
             let masterScheduleViewController = tempController.topViewController as! DisplayTechTalksSchedule
-            masterScheduleViewController.daySelected = "friday"
+            passDataToUIController(vc: masterScheduleViewController)
         }else if segue.identifier == "TTSaturdaySegue" {
             let tempController = segue.destination as! UINavigationController
             let masterScheduleViewController = tempController.topViewController as! DisplayTechTalksSchedule
-            masterScheduleViewController.daySelected = "saturday"
+            passDataToUIController(vc: masterScheduleViewController)
         }else if segue.identifier == "TTSundaySegue" {
             let tempController = segue.destination as! UINavigationController
             let masterScheduleViewController = tempController.topViewController as! DisplayTechTalksSchedule
-            masterScheduleViewController.daySelected = "sunday"
+            passDataToUIController(vc: masterScheduleViewController)
         }
      }
     
+    private func passDataToUIController(vc: DisplayTechTalksSchedule){
+        vc.daySelected = self.daySelected
+        vc.talkSponsor = self.talkSponsor
+        vc.talkName = self.talkName
+        vc.talkTime = self.talkTime
+        vc.talkLocation = self.talkLocation
+        vc.first_description = self.first_description
+    }
     
 }
 
