@@ -84,7 +84,7 @@ class DisplayMap: UIViewController, UIScrollViewDelegate {
         }else if(floor == 4){
             details = "Raytheon\nHacking"
         }else if(floor == 5) {
-            details = "Jacobs Engineering\nTech Talks\nHacking"
+            details = "Jacobs\nTech Talks\nHacking"
         }
         
         let alert = UIAlertController(title: "On This Floor", message: details , preferredStyle: .alert)

@@ -10,7 +10,7 @@ import UIKit
 
 class SocialMediaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let cellContent = ["Facebook","Instagram","Twitter","Snapchat"]
+    let cellContent = ["Hack AZ Website","Discord","Facebook","Instagram","Twitter","Snapchat"]
     
     func openFacebook() {
         let facebookApp = URL(string: "fb://profile/1530662117173581")
@@ -50,6 +50,18 @@ class SocialMediaViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
+    func goToHackAZWebsite(){
+        if let url = URL(string: "http://www.hackarizona.org"){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    func goToDiscord(){
+        if let url = URL(string: "https://discordapp.com/invite/GTP5FGF"){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
     }
@@ -57,23 +69,33 @@ class SocialMediaViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
-        if rowPressed == 0{
+        if rowPressed == 0 {
+            self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(133)/255.0, green: CGFloat(127)/255.0, blue: CGFloat(198)/255.0, alpha: 1.0)
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+            goToHackAZWebsite()
+        }else if rowPressed == 1 {
+            self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(110)/255.0, green: CGFloat(139)/255.0, blue: CGFloat(205)/255.0, alpha: 1.0)
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+            goToDiscord()
+        }else if rowPressed == 2{
            self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(64)/255.0, green: CGFloat(104)/255.0, blue: CGFloat(173)/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
             self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
             openFacebook()
-        }else if rowPressed == 1 {
+        }else if rowPressed == 3 {
             let color = UIColor(red: CGFloat(252)/255.0, green: CGFloat(171)/255.0, blue: CGFloat(94)/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(147)/255.0, green: CGFloat(63)/255.0, blue: CGFloat(163)/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: color ]
             self.navigationItem.leftBarButtonItem?.tintColor = color
             openInstagram()
-        }else if rowPressed == 2 {
+        }else if rowPressed == 4 {
             self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(0)/255.0, green: CGFloat(163)/255.0, blue: CGFloat(236)/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
             self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
             openTwitter()
-        }else if rowPressed == 3 {
+        }else if rowPressed == 5 {
             self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(255)/255.0, green: CGFloat(250)/255.0, blue: CGFloat(85)/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
             self.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
@@ -100,6 +122,14 @@ class SocialMediaViewController: UIViewController, UITableViewDelegate, UITableV
             cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         }else if (text == "Snapchat"){
             cell.textLabel?.textColor = UIColor(red: CGFloat(255)/255.0, green: CGFloat(250)/255.0, blue: CGFloat(85)/255.0, alpha: 1.0)
+            cell.textLabel?.text = text
+            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        }else if(text == "Hack AZ Website"){
+            cell.textLabel?.textColor = UIColor(red: CGFloat(133)/255.0, green: CGFloat(127)/255.0, blue: CGFloat(198)/255.0, alpha: 1.0)
+            cell.textLabel?.text = text
+            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        }else if(text == "Discord"){
+            cell.textLabel?.textColor = UIColor(red: CGFloat(110)/255.0, green: CGFloat(139)/255.0, blue: CGFloat(205)/255.0, alpha: 1.0)
             cell.textLabel?.text = text
             cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         }

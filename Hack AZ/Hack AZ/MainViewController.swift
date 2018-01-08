@@ -19,12 +19,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     
     //A basic way to make your sections dynamic would be to pull an array.
-    let sections = ["Schedule", "Events", "Maps", "Mentor Hub", "Live Stream", "Social Media"]
+    let sections = ["Schedule", "Events", "Maps", "Mentor Hub", "Live Stream", "Communication"]
     let imageSection = ["g_schedule_icon.jpeg","g_events_icon.jpeg","g_maps_icon.jpeg","g_mentor_hub_icon.jpeg","g_live_stream_icon.jpeg","g_social_media_icon.jpeg"]
     let url = URL(string: "http://hackarizona.org/livestream.json")!
     let url2 = URL(string: "http://hackarizona.org/mentorhub.json")!
     var liveStreamUrl = ""
     var mentorHubUrl = ""
+    
+    // variable to set it network times out
+    var timedOut = false
     
     // phone screen size
     var screenWidth: CGFloat = 0.0
@@ -93,8 +96,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        getLiveStreamLink()
-        getMentorHubLink()
+        
     }
     
     //Required collectionView functions
@@ -120,7 +122,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             cellTitleLabel.textAlignment = .center
             cellTitleLabel.text = sections[indexPath.item]
             cellTitleLabel.adjustsFontSizeToFitWidth = true
-            //cellTitleLabel.textColor = UIColor(red: CGFloat(183)/255.0, green: CGFloat(122)/255.0, blue: CGFloat(254)/255.0, alpha: 1.0)
             cellTitleLabel.textColor = UIColor.white
             cell.contentView.addSubview(cellTitleLabel)
         }else{
@@ -128,7 +129,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             cellTitleLabel.textAlignment = .center
             cellTitleLabel.text = sections[indexPath.item]
             cellTitleLabel.adjustsFontSizeToFitWidth = true
-            //cellTitleLabel.textColor = UIColor(red: CGFloat(183)/255.0, green: CGFloat(122)/255.0, blue: CGFloat(254)/255.0, alpha: 1.0)
             cellTitleLabel.textColor = UIColor.white
             cell.contentView.addSubview(cellTitleLabel)
         }
@@ -165,6 +165,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //What happens when you select a cell
         let cellSelected = sections[indexPath.item].lowercased()
+        let alert = UIAlertController(title: "Error", message: "Network request timed out. Please try again" , preferredStyle: .alert)
         if(cellSelected == "schedule"){
             let controller = storyboard?.instantiateViewController(withIdentifier: "ScheduleController")
             self.present(controller!, animated: true)
@@ -175,20 +176,24 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             let controller = storyboard?.instantiateViewController(withIdentifier: "MapController")
             self.present(controller!, animated: true)
         }else if(cellSelected == "live stream"){
-            activityIndicator.startAnimating()
             getLiveStreamLink()
-            if let streamUrl = URL(string: self.liveStreamUrl){
-                activityIndicator.stopAnimating()
+            if !timedOut, let streamUrl = URL(string: self.liveStreamUrl){
                 UIApplication.shared.open(streamUrl, options: [:], completionHandler: nil)
+            }else {
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                timedOut = false
             }
         }else if(cellSelected == "mentor hub"){
-            activityIndicator.startAnimating()
             getMentorHubLink()
-            if let streamUrl = URL(string: self.mentorHubUrl){
-                activityIndicator.stopAnimating()
+            if !timedOut, let streamUrl = URL(string: self.mentorHubUrl){
                 UIApplication.shared.open(streamUrl, options: [:], completionHandler: nil)
+            }else {
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                timedOut = false
             }
-        }else if(cellSelected == "social media"){
+        }else if(cellSelected == "communication"){
             let controller = storyboard?.instantiateViewController(withIdentifier: "SocialMediaController")
             self.present(controller!, animated: true)
         }
@@ -220,9 +225,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
         // Disable caching
         URLCache.shared.removeAllCachedResponses()
-        
+
         // Make request with Alamofire
-        let response = Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
         switch response.result {
         case .success(let value):
             let json = JSON(value)
@@ -232,6 +237,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             break
         case .failure(let error):
             print(error)
+            if error._code == NSURLErrorTimedOut {
+                self.timedOut = true
+            }
             break
         }
     }
@@ -239,9 +247,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     func getMentorHubLink() -> Void {
         // Disable caching
         URLCache.shared.removeAllCachedResponses()
-        
+    
         // Make request with Alamofire
-        let response = Alamofire.request(url2, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
         switch response.result {
         case .success(let value):
             let json = JSON(value)
@@ -251,9 +259,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             break
         case .failure(let error):
             print(error)
+            if error._code == NSURLErrorTimedOut {
+                self.timedOut = true
+            }
             break
         }
-
     }
     
     func startActivityIndicator(){
