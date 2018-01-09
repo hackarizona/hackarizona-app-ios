@@ -13,6 +13,7 @@
 		C311920A1FD4A1310098F054 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C31192091FD4A1310098F054 /* GoogleService-Info.plist */; };
 		C319528A1FE38D90004D2B2D /* Login@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C31952891FE38D90004D2B2D /* Login@2x.png */; };
 		C31D84DD1F85F8FC00CFA774 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */; };
+		C32B72C62004C0590040E560 /* g_ios_communication_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C32B72C52004C0580040E560 /* g_ios_communication_icon.jpeg */; };
 		C3489D531FC2238A000DE0E1 /* DisplayMasterSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3489D521FC2238A000DE0E1 /* DisplayMasterSchedule.swift */; };
 		C358874D2001CB1900F192C5 /* g_live_stream_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C35887472001CB1800F192C5 /* g_live_stream_icon.jpeg */; };
 		C358874E2001CB1900F192C5 /* g_mentor_hub_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C35887482001CB1800F192C5 /* g_mentor_hub_icon.jpeg */; };
@@ -20,7 +21,6 @@
 		C35887512001CB1900F192C5 /* g_events_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358874B2001CB1800F192C5 /* g_events_icon.jpeg */; };
 		C35887522001CB1900F192C5 /* g_maps_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C358874C2001CB1900F192C5 /* g_maps_icon.jpeg */; };
 		C35887542001CC4900F192C5 /* logo_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C35887532001CC4900F192C5 /* logo_icon.jpeg */; };
-		C35887562001CD7300F192C5 /* g_social_media_icon.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C35887552001CD7300F192C5 /* g_social_media_icon.jpeg */; };
 		C3588758200225F100F192C5 /* LiveStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3588757200225F100F192C5 /* LiveStreamViewController.swift */; };
 		C358875A2002269100F192C5 /* DisplayLiveStreamSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35887592002269100F192C5 /* DisplayLiveStreamSchedule.swift */; };
 		C38B72C51FE08C4800498B6E /* floor1.png in Resources */ = {isa = PBXBuildFile; fileRef = C38B72C01FE08C4800498B6E /* floor1.png */; };
@@ -76,6 +76,7 @@
 		C31192091FD4A1310098F054 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C31952891FE38D90004D2B2D /* Login@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login@2x.png"; sourceTree = "<group>"; };
 		C31D84DC1F85F8FC00CFA774 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		C32B72C52004C0580040E560 /* g_ios_communication_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = g_ios_communication_icon.jpeg; sourceTree = "<group>"; };
 		C3489D521FC2238A000DE0E1 /* DisplayMasterSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMasterSchedule.swift; sourceTree = "<group>"; };
 		C35887472001CB1800F192C5 /* g_live_stream_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = g_live_stream_icon.jpeg; sourceTree = "<group>"; };
 		C35887482001CB1800F192C5 /* g_mentor_hub_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = g_mentor_hub_icon.jpeg; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		C358874B2001CB1800F192C5 /* g_events_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = g_events_icon.jpeg; sourceTree = "<group>"; };
 		C358874C2001CB1900F192C5 /* g_maps_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = g_maps_icon.jpeg; sourceTree = "<group>"; };
 		C35887532001CC4900F192C5 /* logo_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo_icon.jpeg; sourceTree = "<group>"; };
-		C35887552001CD7300F192C5 /* g_social_media_icon.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = g_social_media_icon.jpeg; sourceTree = "<group>"; };
 		C3588757200225F100F192C5 /* LiveStreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStreamViewController.swift; sourceTree = "<group>"; };
 		C35887592002269100F192C5 /* DisplayLiveStreamSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayLiveStreamSchedule.swift; sourceTree = "<group>"; };
 		C37AD77267F98C165E675341 /* Pods-Hack AZUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hack AZUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hack AZUITests/Pods-Hack AZUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		C34F24061F84A66A00DBF3A1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C35887552001CD7300F192C5 /* g_social_media_icon.jpeg */,
+				C32B72C52004C0580040E560 /* g_ios_communication_icon.jpeg */,
 				C35887532001CC4900F192C5 /* logo_icon.jpeg */,
 				C358874B2001CB1800F192C5 /* g_events_icon.jpeg */,
 				C35887472001CB1800F192C5 /* g_live_stream_icon.jpeg */,
@@ -389,9 +389,9 @@
 				C35887542001CC4900F192C5 /* logo_icon.jpeg in Resources */,
 				C38B72C71FE08C4800498B6E /* floor4.png in Resources */,
 				C319528A1FE38D90004D2B2D /* Login@2x.png in Resources */,
+				C32B72C62004C0590040E560 /* g_ios_communication_icon.jpeg in Resources */,
 				C3EAF8381F81FDED0095F5EC /* Assets.xcassets in Resources */,
 				C311920A1FD4A1310098F054 /* GoogleService-Info.plist in Resources */,
-				C35887562001CD7300F192C5 /* g_social_media_icon.jpeg in Resources */,
 				C358874F2001CB1900F192C5 /* g_schedule_icon.jpeg in Resources */,
 				C358874E2001CB1900F192C5 /* g_mentor_hub_icon.jpeg in Resources */,
 				C35887512001CB1900F192C5 /* g_events_icon.jpeg in Resources */,

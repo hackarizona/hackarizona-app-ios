@@ -32,18 +32,18 @@ class DisplayLiveStreamSchedule:UIViewController, UITableViewDelegate, UITableVi
             cell.textLabel?.text = "There is currently no Live Stream scheduled for this day."
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-            cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+            cell.textLabel?.font = UIFont(name: "Arial", size:22.0)
         }else{
             cell.contentView.backgroundColor = UIColor.black
             cell.textLabel?.textColor = UIColor.white
             cell.textLabel?.text = eventtitle[indexPath.row]
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-            cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+            cell.textLabel?.font = UIFont(name: "Arial", size:22.0)
             cell.detailTextLabel?.numberOfLines = 0
             cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.detailTextLabel?.text = "Time: " + time[indexPath.row] + "\nLocation: " + location[indexPath.row]
-            cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size:16.0)
             cell.detailTextLabel?.textColor = UIColor(red: CGFloat(86)/255.0, green: CGFloat(91)/255.0, blue: CGFloat(146)/255.0, alpha: 1.0)
         }
         return cell

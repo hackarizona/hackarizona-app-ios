@@ -34,18 +34,18 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
             cell.textLabel?.text = "There is currently no activity scheduled for this day"
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-            cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+            cell.textLabel?.font = UIFont(name: "Arial", size:22.0)
         }else{
             cell.contentView.backgroundColor = UIColor.black
             cell.textLabel?.textColor = UIColor.white
             cell.textLabel?.text = activityName[indexPath.row]
             cell.textLabel?.numberOfLines = 0
             cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-            cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
+            cell.textLabel?.font = UIFont(name: "Arial", size:22.0)
             cell.detailTextLabel?.numberOfLines = 0
             cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             cell.detailTextLabel?.text = "Time: " + activityTime[indexPath.row] + "\nLocation: " + activityLocation[indexPath.row]
-            cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size:16.0)
             cell.detailTextLabel?.textColor = UIColor(red: CGFloat(110)/255.0, green: CGFloat(115)/255.0, blue: CGFloat(180)/255.0, alpha: 1.0)
         }
         
@@ -73,19 +73,6 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white ]
         self.navigationItem.leftBarButtonItem?.tintColor = UIColor.white
     }
-    
-//    func startActivityIndicator(){
-//        self.activityIndicator = UIActivityIndicatorView()
-//        activityIndicator.activityIndicatorViewStyle = .whiteLarge
-//        activityIndicator.center = view.center
-//        activityIndicator.color = UIColor.white
-//        activityIndicator.startAnimating()
-//        view.addSubview(activityIndicator)
-//    }
-//    
-//    func stopActivityIndicator(){
-//        self.activityIndicator.stopAnimating()
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -19,6 +19,7 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
     var day = [String]()
     var time = [String]()
     var location = [String]()
+    var sponsor = [String]()
     var first_description = [String]()
     var daySelected = ""
     
@@ -84,14 +85,18 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        cell.detailTextLabel?.text = "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
+        if sponsor[indexPath.row] != "" {
+            cell.detailTextLabel?.text = "\t Sponsor: " + sponsor[indexPath.row] + "\n" + "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
+        }else {
+            cell.detailTextLabel?.text = "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
+        }
         cell.detailTextLabel?.textColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
         if(screenWidth == iPhoneSE_Width && screenHeight == iPhoneSE_Height){
-            cell.textLabel?.font = UIFont(name: "Arial", size:19.0)
-            cell.detailTextLabel?.font = UIFont(name: "Arial", size:15.0)
+            cell.textLabel?.font = UIFont(name: "Arial", size:16.0)
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size:12.0)
         }else{
-            cell.textLabel?.font = UIFont(name: "Arial", size:24.0)
-            cell.detailTextLabel?.font = UIFont(name: "Arial", size:18.0)
+            cell.textLabel?.font = UIFont(name: "Arial", size:22.0)
+            cell.detailTextLabel?.font = UIFont(name: "Arial", size:15.0)
         }
         return cell
         
