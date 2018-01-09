@@ -14,13 +14,10 @@ import Alamofire_Synchronous
 import SwiftyJSON
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-    // Activity Indicator
-    var activityIndicator = UIActivityIndicatorView.init()
-    
     
     //A basic way to make your sections dynamic would be to pull an array.
     let sections = ["Schedule", "Events", "Maps", "Mentor Hub", "Live Stream", "Communication"]
-    let imageSection = ["g_schedule_icon.jpeg","g_events_icon.jpeg","g_maps_icon.jpeg","g_mentor_hub_icon.jpeg","g_live_stream_icon.jpeg","g_social_media_icon.jpeg"]
+    let imageSection = ["g_schedule_icon.jpeg","g_events_icon.jpeg","g_maps_icon.jpeg","g_mentor_hub_icon.jpeg","g_live_stream_icon.jpeg","g_ios_communication_icon.jpeg"]
     let url = URL(string: "http://hackarizona.org/livestream.json")!
     let url2 = URL(string: "http://hackarizona.org/mentorhub.json")!
     var liveStreamUrl = ""
@@ -43,6 +40,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     let iPhonePlus_Height: CGFloat = 736
     let iPhoneX_Width: CGFloat = 375
     let iPhoneX_Height: CGFloat = 812
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,7 +163,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //What happens when you select a cell
         let cellSelected = sections[indexPath.item].lowercased()
+        
+        // Create the alert for if there is a network error
         let alert = UIAlertController(title: "Error", message: "Network request timed out. Please try again" , preferredStyle: .alert)
+        
         if(cellSelected == "schedule"){
             let controller = storyboard?.instantiateViewController(withIdentifier: "ScheduleController")
             self.present(controller!, animated: true)
@@ -223,33 +224,27 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         // test link: https://www.youtube.com/watch?v=i23aUei_7ig
         // actual link: https://www.youtube.com/watch?v=YXtyd1rkbkI
     
-        // Disable caching
-        URLCache.shared.removeAllCachedResponses()
-
         // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)).validate().responseJSON()
         switch response.result {
-        case .success(let value):
-            let json = JSON(value)
-            if let link = json["livestream"][0]["link"].string {
-                self.liveStreamUrl = link
-            }
-            break
-        case .failure(let error):
-            print(error)
-            if error._code == NSURLErrorTimedOut {
-                self.timedOut = true
-            }
-            break
+            case .success(let value):
+                let json = JSON(value)
+                if let link = json["livestream"][0]["link"].string {
+                    self.liveStreamUrl = link
+                }
+                break
+            case .failure(let error):
+                print(error)
+                if error._code == NSURLErrorTimedOut || error._code == NSURLErrorNotConnectedToInternet {
+                    self.timedOut = true
+                }
+                break
         }
     }
     
     func getMentorHubLink() -> Void {
-        // Disable caching
-        URLCache.shared.removeAllCachedResponses()
-    
         // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)).validate().responseJSON()
         switch response.result {
         case .success(let value):
             let json = JSON(value)
@@ -259,24 +254,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             break
         case .failure(let error):
             print(error)
-            if error._code == NSURLErrorTimedOut {
+            if error._code == NSURLErrorTimedOut || error._code == NSURLErrorNotConnectedToInternet {
                 self.timedOut = true
             }
             break
         }
-    }
-    
-    func startActivityIndicator(){
-        self.activityIndicator = UIActivityIndicatorView()
-        activityIndicator.activityIndicatorViewStyle = .whiteLarge
-        activityIndicator.center = view.center
-        activityIndicator.color = UIColor.white
-        activityIndicator.startAnimating()
-        view.addSubview(activityIndicator)
-    }
-    
-    func stopActivityIndicator(){
-        self.activityIndicator.stopAnimating()
     }
     
 }

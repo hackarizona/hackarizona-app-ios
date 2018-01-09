@@ -22,35 +22,6 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
     var timedOut = false
     let url = URL(string: "http://hackarizona.org/firstbyte.json")!
     
-    private func eventDataHelper(day: String!, jsonfile: JSON!) {
-        for index in 0...(jsonfile[day].count-1){
-            self.workshop.append(jsonfile[day][index]["workshop"].string!)
-            self.time.append(jsonfile[day][index]["time"].string!)
-            self.location.append(jsonfile[day][index]["location"].string!)
-            self.first_description.append(jsonfile[day][index]["description"].string!)
-        }
-    }
-    
-    func getEventData() -> Void{
-        // Disable caching
-        URLCache.shared.removeAllCachedResponses()
-        
-        // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
-        switch response.result {
-        case .success(let value):
-            let json = JSON(value)
-            self.eventDataHelper(day: self.daySelected, jsonfile: json)
-            break
-        case .failure(let error):
-            print(error)
-            if error._code == NSURLErrorTimedOut || error._code == NSURLErrorNotConnectedToInternet {
-                self.timedOut = true
-            }
-            break
-        }
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellContent.count
     }
@@ -150,6 +121,33 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
             passDataToUIController(vc: masterScheduleViewController)
         }
     }
+    
+    private func eventDataHelper(day: String!, jsonfile: JSON!) {
+        for index in 0...(jsonfile[day].count-1){
+            self.workshop.append(jsonfile[day][index]["workshop"].string!)
+            self.time.append(jsonfile[day][index]["time"].string!)
+            self.location.append(jsonfile[day][index]["location"].string!)
+            self.first_description.append(jsonfile[day][index]["description"].string!)
+        }
+    }
+    
+    func getEventData() -> Void{
+        // Make request with Alamofire
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
+        switch response.result {
+        case .success(let value):
+            let json = JSON(value)
+            self.eventDataHelper(day: self.daySelected, jsonfile: json)
+            break
+        case .failure(let error):
+            print(error)
+            if error._code == NSURLErrorTimedOut || error._code == NSURLErrorNotConnectedToInternet {
+                self.timedOut = true
+            }
+            break
+        }
+    }
+    
     private func passDataToUIController(vc: DisplayFirstByteSchedule){
         vc.daySelected = self.daySelected
         vc.workshop = self.workshop

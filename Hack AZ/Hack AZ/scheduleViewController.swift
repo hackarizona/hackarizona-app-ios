@@ -20,6 +20,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     var day = [String]()
     var time = [String]()
     var location = [String]()
+    var sponsor = [String]()
     var first_description = [String]()
     var daySelected = ""
     var timedOut = false
@@ -126,6 +127,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         vc.day = self.day
         vc.time = self.time
         vc.location = self.location
+        vc.sponsor = self.sponsor
         vc.first_description = self.first_description
     }
     
@@ -137,16 +139,14 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
             self.day.append(jsonfile[day][index]["day"].string!)
             self.time.append(jsonfile[day][index]["time"].string!)
             self.location.append(jsonfile[day][index]["location"].string!)
+            self.sponsor.append(jsonfile[day][index]["sponsor"].string!)
             self.first_description.append(jsonfile[day][index]["description"].string!)
         }
     }
     
     func getEventData() -> Void{
-        // Disable caching
-        URLCache.shared.removeAllCachedResponses()
-        
         // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)).validate().responseJSON()
         switch response.result {
         case .success(let value):
             let json = JSON(value)
