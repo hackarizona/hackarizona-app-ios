@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SocialMediaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CommunicationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let cellContent = ["Hack AZ Website","Discord","Facebook","Instagram","Twitter","Snapchat"]
     
@@ -110,29 +110,19 @@ class SocialMediaViewController: UIViewController, UITableViewDelegate, UITableV
         let text = cellContent[indexPath.row]
         if (text == "Facebook"){
             cell.textLabel?.textColor = UIColor(red: CGFloat(64)/255.0, green: CGFloat(104)/255.0, blue: CGFloat(173)/255.0, alpha: 1.0)
-            cell.textLabel?.text = text
-            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         }else if (text == "Instagram"){
             cell.textLabel?.textColor = UIColor(red: CGFloat(147)/255.0, green: CGFloat(63)/255.0, blue: CGFloat(163)/255.0, alpha: 1.0)
-            cell.textLabel?.text = text
-            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         }else if (text == "Twitter"){
             cell.textLabel?.textColor = UIColor(red: CGFloat(0)/255.0, green: CGFloat(163)/255.0, blue: CGFloat(236)/255.0, alpha: 1.0)
-            cell.textLabel?.text = text
-            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         }else if (text == "Snapchat"){
             cell.textLabel?.textColor = UIColor(red: CGFloat(255)/255.0, green: CGFloat(250)/255.0, blue: CGFloat(85)/255.0, alpha: 1.0)
-            cell.textLabel?.text = text
-            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         }else if(text == "Hack AZ Website"){
             cell.textLabel?.textColor = UIColor(red: CGFloat(133)/255.0, green: CGFloat(127)/255.0, blue: CGFloat(198)/255.0, alpha: 1.0)
-            cell.textLabel?.text = text
-            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         }else if(text == "Discord"){
             cell.textLabel?.textColor = UIColor(red: CGFloat(110)/255.0, green: CGFloat(139)/255.0, blue: CGFloat(205)/255.0, alpha: 1.0)
-            cell.textLabel?.text = text
-            cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
         }
+        cell.textLabel?.text = text
+        cell.textLabel?.font = UIFont(name: "Arial", size:28.0)
         return cell
         
     }

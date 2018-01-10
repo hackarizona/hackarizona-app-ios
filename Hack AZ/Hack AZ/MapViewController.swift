@@ -42,7 +42,7 @@ class MapViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         cell.textLabel?.text = cellContent[indexPath.row].uppercased()
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-        cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        cell.textLabel?.font = UIFont(name: "Arial", size:28.0)
         return cell
         
     }

@@ -20,6 +20,7 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
     var time = [String]()
     var location = [String]()
     var sponsor = [String]()
+    var presenter = [String]()
     var first_description = [String]()
     var daySelected = ""
     
@@ -87,9 +88,12 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
         cell.detailTextLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         if sponsor[indexPath.row] != "" {
             cell.detailTextLabel?.text = "\t Sponsor: " + sponsor[indexPath.row] + "\n" + "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
+        }else if presenter[indexPath.row] != "" {
+            cell.detailTextLabel?.text = "\t Presenter: " + presenter[indexPath.row] + "\n" + "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
         }else {
             cell.detailTextLabel?.text = "\t Time: " + time[indexPath.row] + "\n" + "\t Location: " + location[indexPath.row]
         }
+        
         cell.detailTextLabel?.textColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
         if(screenWidth == iPhoneSE_Width && screenHeight == iPhoneSE_Height){
             cell.textLabel?.font = UIFont(name: "Arial", size:16.0)
@@ -129,9 +133,25 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func emojiKey(sender: UIBarButtonItem) {
-        let details = "\u{1F335}: Hack Arizona General Event\n\u{1F4FA}: Live Stream\n\u{2615}: Breakfast\n\u{1F96A}: Lunch\n\u{1F32E}: Dinner\n\u{1F3C3}\u{200D}\u{2642}\u{FE0F}: Activity\n\u{1F468}\u{200D}\u{1F4BB}: Tech Talk\n\u{1F469}\u{200D}\u{1F3EB}: firstByte Workshop\n\n Click on an event to view a description"
+        let details = "\u{1F335}: General Event\n\u{1F4FA}: Live Stream\n\u{2615}: Breakfast\n\u{1F96A}: Lunch\n\u{1F32E}: Dinner\n\u{1F3C3}\u{200D}\u{2642}\u{FE0F}: Activity\n\u{1F468}\u{200D}\u{1F4BB}: Tech Talk\n\u{1F469}\u{200D}\u{1F3EB}: firstByte Workshop\n\nClick on an event to view a description"
         let alert = UIAlertController(title: "KEY", message: details , preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        
+        // Code to align alert message body left.
+        // Code provided by: https://chauyanw.wordpress.com/2017/01/29/uialertcontroller-text-alignment/
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .left
+        
+        let messageText = NSMutableAttributedString(
+            string: details,
+            attributes: [
+                NSAttributedStringKey.paragraphStyle: paragraphStyle,
+                NSAttributedStringKey.font : UIFont.preferredFont(forTextStyle: .body),
+                NSAttributedStringKey.foregroundColor : UIColor.black,
+            ]
+        )
+        
+        alert.setValue(messageText, forKey: "attributedMessage")
         self.present(alert, animated: true, completion: nil)
     }
     override func didReceiveMemoryWarning() {

@@ -195,7 +195,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
                 timedOut = false
             }
         }else if(cellSelected == "communication"){
-            let controller = storyboard?.instantiateViewController(withIdentifier: "SocialMediaController")
+            let controller = storyboard?.instantiateViewController(withIdentifier: "CommunicationController")
             self.present(controller!, animated: true)
         }
         

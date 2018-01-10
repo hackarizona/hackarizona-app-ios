@@ -70,7 +70,7 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor(red: CGFloat(110)/255.0, green: CGFloat(115)/255.0, blue: CGFloat(180)/255.0, alpha: 1.0)
         cell.textLabel?.text = cellContent[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        cell.textLabel?.font = UIFont(name: "Arial", size:28.0)
         return cell
         
     }
