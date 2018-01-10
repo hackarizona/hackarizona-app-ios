@@ -21,6 +21,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     var time = [String]()
     var location = [String]()
     var sponsor = [String]()
+    var presenter = [String]()
     var first_description = [String]()
     var daySelected = ""
     var timedOut = false
@@ -79,7 +80,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
         cell.textLabel?.text = cellContent[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        cell.textLabel?.font = UIFont(name: "Arial", size:28.0)
         return cell
         
     }
@@ -128,6 +129,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         vc.time = self.time
         vc.location = self.location
         vc.sponsor = self.sponsor
+        vc.presenter = self.presenter
         vc.first_description = self.first_description
     }
     
@@ -140,6 +142,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
             self.time.append(jsonfile[day][index]["time"].string!)
             self.location.append(jsonfile[day][index]["location"].string!)
             self.sponsor.append(jsonfile[day][index]["sponsor"].string!)
+            self.presenter.append(jsonfile[day][index]["presenter"].string!)
             self.first_description.append(jsonfile[day][index]["description"].string!)
         }
     }

@@ -71,7 +71,7 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor(red: CGFloat(149)/255.0, green: CGFloat(127)/255.0, blue: CGFloat(197)/255.0, alpha: 1.0)
         cell.textLabel?.text = cellContent[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Arial", size:36.0)
+        cell.textLabel?.font = UIFont(name: "Arial", size:28.0)
         return cell
         
     }

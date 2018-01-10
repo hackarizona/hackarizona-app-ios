@@ -51,7 +51,7 @@ class DisplayMap: UIViewController, UIScrollViewDelegate {
             
         }else if (floor == 5){
             let floorToView = String(floor)
-            self.title = "FLOOR 5".uppercased()
+            self.title = "JACOBS FLOOR".uppercased()
             let floor_image:UIImage! = UIImage(named: "floor\(floorToView).png")
             self.imageView.image = floor_image
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(displayFloorDetails))
@@ -76,19 +76,35 @@ class DisplayMap: UIViewController, UIScrollViewDelegate {
     @objc func displayFloorDetails(sender: UIBarButtonItem) {
         var details = ""
         if(floor == 1){
-            details = "MLH Hardware Lab\nHacking"
+            details = "Yellow: MLH Hardware Lab\nGreen: Elevators\nOrange: Restrooms\nBrown: Stairs"
         }else if(floor == 2){
-            details = "Hacking\nSponsors\nActivities\nFood (outside)\nLive Stream Studio"
+            details = "Red: iSpace\nYellow: 200S Activity Room\nBlue: Help Desk/Volunteers\nGreen: Elevators\nOrange: Restrooms\nBrown: Stairs"
         }else if(floor == 3){
-            details = "firstByte Workshops\nHacking"
+            details = "Purple: firstByte Workshops\nGreen: Elevators\nOrange: Restrooms\nBrown: Stairs"
         }else if(floor == 4){
-            details = "Raytheon\nHacking"
+            details = "Green: Elevators\nOrange: Restrooms\nBrown: Stairs"
         }else if(floor == 5) {
-            details = "Jacobs\nTech Talks\nHacking"
+            details = "Yellow: Tech Talks\nGreen: Elevators\nOrange: Restrooms\nBrown: Stairs"
         }
         
-        let alert = UIAlertController(title: "On This Floor", message: details , preferredStyle: .alert)
+        let alert = UIAlertController(title: "Key", message: nil , preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+        
+        // Code to align alert message body left.
+        // Code provided by: https://chauyanw.wordpress.com/2017/01/29/uialertcontroller-text-alignment/
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .left
+        
+        let messageText = NSMutableAttributedString(
+            string: details,
+            attributes: [
+                NSAttributedStringKey.paragraphStyle: paragraphStyle,
+                NSAttributedStringKey.font : UIFont.preferredFont(forTextStyle: .body),
+                NSAttributedStringKey.foregroundColor : UIColor.black
+            ]
+        )
+        
+        alert.setValue(messageText, forKey: "attributedMessage")
         self.present(alert, animated: true, completion: nil)
     }
     

@@ -881,12 +881,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.64313725489999995" green="0.49019607840000001" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="NfB-1F-1el">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="NfB-1F-1el">
                             <rect key="frame" x="0.0" y="72" width="414" height="227"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_trans.png" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-R9-o9P">
-                                    <rect key="frame" x="143" y="54" width="129" height="119"/>
+                                    <rect key="frame" x="142.66666666666666" y="122" width="128.99999999999997" height="119"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="119" id="qc2-p3-aX5"/>
                                         <constraint firstAttribute="width" constant="129" id="y1t-dO-NTj"/>
@@ -988,10 +988,10 @@
             </objects>
             <point key="canvasLocation" x="2887" y="-2623"/>
         </scene>
-        <!--SocialMedia_View_Controller-->
+        <!--Communication_View_Controller-->
         <scene sceneID="1f8-wM-DSA">
             <objects>
-                <viewController storyboardIdentifier="SocialMediaViewController" title="SocialMedia_View_Controller" id="Lqc-ZD-YjS" customClass="SocialMediaViewController" customModule="Hack_AZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommunicationViewController" title="Communication_View_Controller" id="Lqc-ZD-YjS" customClass="CommunicationViewController" customModule="Hack_AZ" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ay2-ia-dGv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1055,7 +1055,7 @@
                             <outlet property="delegate" destination="Lqc-ZD-YjS" id="uU2-fJ-bbw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="SOCIAL MEDIA" id="RyM-rK-ul7">
+                    <navigationItem key="navigationItem" title="COMMUNICATION" id="RyM-rK-ul7">
                         <barButtonItem key="leftBarButtonItem" title="&lt; BACK" id="dAG-A3-1RM">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1071,7 +1071,7 @@
         <!--Navigation Controller-->
         <scene sceneID="acf-dG-Meo">
             <objects>
-                <navigationController storyboardIdentifier="SocialMediaController" automaticallyAdjustsScrollViewInsets="NO" id="ioD-ty-qX7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CommunicationController" automaticallyAdjustsScrollViewInsets="NO" id="ioD-ty-qX7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="czR-1Y-b9G">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -1104,7 +1104,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_trans.png" translatesAutoresizingMaskIntoConstraints="NO" id="wCe-K7-whO">
-                                    <rect key="frame" x="143" y="54" width="129" height="119"/>
+                                    <rect key="frame" x="142.66666666666666" y="54" width="128.99999999999997" height="119"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="129" id="Uuk-DA-QnP"/>
                                         <constraint firstAttribute="height" constant="119" id="sLq-TY-iG2"/>
@@ -1330,12 +1330,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="Ox9-R1-vrb">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Ox9-R1-vrb">
                             <rect key="frame" x="0.0" y="205.33333333333337" width="414" height="227"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_trans.png" translatesAutoresizingMaskIntoConstraints="NO" id="or5-hC-T01">
-                                    <rect key="frame" x="143" y="54" width="129" height="119"/>
+                                    <rect key="frame" x="142.66666666666666" y="122" width="128.99999999999997" height="119"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="129" id="1T2-6U-EcO"/>
                                         <constraint firstAttribute="height" constant="119" id="LQO-tR-5Ux"/>
@@ -1422,7 +1422,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_trans.png" translatesAutoresizingMaskIntoConstraints="NO" id="wFI-x6-Gki">
-                                    <rect key="frame" x="143" y="54" width="129" height="119"/>
+                                    <rect key="frame" x="142.66666666666666" y="54" width="128.99999999999997" height="119"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="119" id="YJK-Ix-1Hw"/>
                                         <constraint firstAttribute="width" constant="129" id="zfc-DM-jri"/>
@@ -1534,7 +1534,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="fbF-y0-dOl"/>
         <segue reference="8qG-DE-e4M"/>
-        <segue reference="iqM-Nr-XIC"/>
+        <segue reference="IKj-uz-AgO"/>
         <segue reference="YWi-Fd-5Fu"/>
         <segue reference="QbH-I5-ZYT"/>
         <segue reference="MqZ-Fj-q4u"/>
