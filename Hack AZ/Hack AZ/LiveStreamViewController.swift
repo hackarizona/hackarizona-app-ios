@@ -26,6 +26,7 @@ class LiveStreamViewController: UIViewController, UITableViewDelegate, UITableVi
         return cellContent.count
     }
     
+    // Actions when cell is pressed
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
@@ -64,8 +65,8 @@ class LiveStreamViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    // setup cell display
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
         cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor(red: CGFloat(86)/255.0, green: CGFloat(91)/255.0, blue: CGFloat(146)/255.0, alpha: 1.0)
@@ -89,9 +90,7 @@ class LiveStreamViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Segue prep for next view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LiveStreamFridaySegue" {
             let tempController = segue.destination as! UINavigationController
@@ -108,6 +107,7 @@ class LiveStreamViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    // helper function
     private func eventDataHelper(day: String!, jsonfile: JSON!) {
         for index in 0...(jsonfile[day].count-1){
             self.eventtitle.append(jsonfile[day][index]["title"].string!)
@@ -117,9 +117,10 @@ class LiveStreamViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    // Get the live stream event data
     func getEventData() -> Void{
         // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 15)).validate().responseJSON()
         switch response.result {
         case .success(let value):
             let json = JSON(value)
@@ -134,7 +135,7 @@ class LiveStreamViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    
+    // helper function
     private func passDataToUIController(vc: DisplayLiveStreamSchedule){
         vc.daySelected = self.daySelected
         vc.eventtitle = self.eventtitle

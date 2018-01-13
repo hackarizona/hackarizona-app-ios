@@ -12,6 +12,7 @@ class CommunicationViewController: UIViewController, UITableViewDelegate, UITabl
     
     let cellContent = ["Hack AZ Website","Discord","Facebook","Instagram","Twitter","Snapchat"]
     
+    // Helper functions that will open the apps if they are installed or go to their websites
     func openFacebook() {
         let facebookApp = URL(string: "fb://profile/1530662117173581")
         if UIApplication.shared.canOpenURL(facebookApp!){
@@ -69,6 +70,7 @@ class CommunicationViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
+        // Actions when cell is pressed
         if rowPressed == 0 {
             self.navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(133)/255.0, green: CGFloat(127)/255.0, blue: CGFloat(198)/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -103,6 +105,7 @@ class CommunicationViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
+    // Cell display
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")

@@ -21,6 +21,8 @@ class DisplayMap: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         self.scrollView.minimumZoomScale = 1.0
         self.scrollView.maximumZoomScale = 10.0
+        
+        // load map by floor
         if (floor == 1){
             let floorToView = String(floor)
             self.title = "BASEMENT".uppercased()
@@ -32,6 +34,7 @@ class DisplayMap: UIViewController, UIScrollViewDelegate {
             let floorToView = String(floor)
             self.title = "MAIN FLOOR".uppercased()
             let floor_image:UIImage! = UIImage(named: "floor\(floorToView).png")
+
             self.imageView.image = floor_image
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(displayFloorDetails))
             
@@ -39,6 +42,7 @@ class DisplayMap: UIViewController, UIScrollViewDelegate {
             let floorToView = String(floor)
             self.title = "FLOOR 3".uppercased()
             let floor_image:UIImage! = UIImage(named: "floor\(floorToView).png")
+
             self.imageView.image = floor_image
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Details", style: .plain, target: self, action: #selector(displayFloorDetails))
             
@@ -73,6 +77,7 @@ class DisplayMap: UIViewController, UIScrollViewDelegate {
         return self.imageView
     }
     
+    // Alert for when details is pressed
     @objc func displayFloorDetails(sender: UIBarButtonItem) {
         var details = ""
         if(floor == 1){

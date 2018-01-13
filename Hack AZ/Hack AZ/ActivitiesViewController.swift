@@ -88,11 +88,7 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Pass data to next view controller before performing the segue
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ActivitiesFridaySegue" {
             let tempController = segue.destination as! UINavigationController
@@ -109,6 +105,7 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
      }
     
+    // Helper function
     private func eventDataHelper(day: String!, jsonfile: JSON!) {
         for index in 0...(jsonfile[day].count-1){
             self.activityName.append(jsonfile[day][index]["activity"].string!)
@@ -118,9 +115,10 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    // Get Activities data
     func getEventData() -> Void{
         // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 15)).validate().responseJSON()
         switch response.result {
         case .success(let value):
             let json = JSON(value)
@@ -135,6 +133,7 @@ class ActivitiesViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
+    // Helper function
     private func passDataToUIController(vc: DisplayActivitiesSchedule){
         vc.daySelected = self.daySelected
         vc.activityName = self.activityName

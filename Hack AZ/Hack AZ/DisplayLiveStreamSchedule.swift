@@ -24,6 +24,7 @@ class DisplayLiveStreamSchedule:UIViewController, UITableViewDelegate, UITableVi
         return eventtitle.count
     }
     
+    // Cell display
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "mainCell")
         if(eventtitle[indexPath.row] == ""){
@@ -49,6 +50,7 @@ class DisplayLiveStreamSchedule:UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    // Display description when cell is pressed
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row

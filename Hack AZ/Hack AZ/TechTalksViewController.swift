@@ -90,9 +90,7 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
 
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     // Pass data to next view controller before going to it
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "TTFridaySegue" {
             let tempController = segue.destination as! UINavigationController
@@ -109,6 +107,7 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
         }
      }
     
+    // Helper function
     private func eventDataHelper(day: String!, jsonfile: JSON!) {
         for index in 0...(jsonfile[day].count-1){
             self.talkSponsor.append(jsonfile[day][index]["sponsor"].string!)
@@ -119,9 +118,10 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    // Get the Tech Talks data from the json files
     func getEventData() -> Void{
         // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 15)).validate().responseJSON()
         switch response.result {
         case .success(let value):
             let json = JSON(value)
@@ -136,6 +136,7 @@ class TechTalksViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    // helper function
     private func passDataToUIController(vc: DisplayTechTalksSchedule){
         vc.daySelected = self.daySelected
         vc.talkSponsor = self.talkSponsor

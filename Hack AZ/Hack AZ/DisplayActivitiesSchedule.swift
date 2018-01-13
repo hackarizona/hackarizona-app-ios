@@ -25,8 +25,8 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
         return activityName.count
     }
     
+    // Display the activities data in the table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "mainCell")
         if(activityName[indexPath.row] == ""){
             cell.contentView.backgroundColor = UIColor.black
@@ -52,6 +52,7 @@ class DisplayActivitiesSchedule: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    // Display descrption when cell is pressed
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
