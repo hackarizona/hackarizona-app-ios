@@ -24,6 +24,7 @@ class DisplayFirstByteSchedule: UIViewController, UITableViewDelegate, UITableVi
         return workshop.count
     }
     
+    // Display the data
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "mainCell")
         if(workshop[indexPath.row] == ""){
@@ -49,6 +50,7 @@ class DisplayFirstByteSchedule: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    // Display descriptions when cell is pressed
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row

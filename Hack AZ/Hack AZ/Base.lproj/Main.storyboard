@@ -18,17 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_icon.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="0ND-gd-CV2">
-                                <rect key="frame" x="126" y="82" width="162" height="102"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_trans.png" translatesAutoresizingMaskIntoConstraints="NO" id="0ND-gd-CV2">
+                                <rect key="frame" x="145" y="76" width="124" height="119"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="102" id="D5a-CX-Zja"/>
-                                    <constraint firstAttribute="width" constant="162" id="LNg-Ka-ibK"/>
+                                    <constraint firstAttribute="height" constant="119" id="D5a-CX-Zja"/>
+                                    <constraint firstAttribute="width" constant="124" id="LNg-Ka-ibK"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="0ND-gd-CV2" firstAttribute="top" secondItem="mZc-wB-P8j" secondAttribute="top" constant="18" id="AIZ-cS-bzE"/>
+                            <constraint firstItem="0ND-gd-CV2" firstAttribute="top" secondItem="mZc-wB-P8j" secondAttribute="top" constant="12" id="AIZ-cS-bzE"/>
                             <constraint firstItem="0ND-gd-CV2" firstAttribute="centerX" secondItem="p8Q-uE-VAS" secondAttribute="centerX" id="qsP-jq-Xwo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mZc-wB-P8j"/>
@@ -626,7 +626,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLi-Ws-azH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2371.0144927536235" y="-67.663043478260875"/>
+            <point key="canvasLocation" x="2064" y="-68"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0g2-OX-lX1">
@@ -881,12 +881,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.64313725489999995" green="0.49019607840000001" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="NfB-1F-1el">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="NfB-1F-1el">
                             <rect key="frame" x="0.0" y="72" width="414" height="227"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_trans.png" translatesAutoresizingMaskIntoConstraints="NO" id="RWd-R9-o9P">
-                                    <rect key="frame" x="142.66666666666666" y="122" width="128.99999999999997" height="119"/>
+                                    <rect key="frame" x="142.66666666666666" y="54" width="128.99999999999997" height="119"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="119" id="qc2-p3-aX5"/>
                                         <constraint firstAttribute="width" constant="129" id="y1t-dO-NTj"/>
@@ -1330,12 +1330,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Ox9-R1-vrb">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Ox9-R1-vrb">
                             <rect key="frame" x="0.0" y="205.33333333333337" width="414" height="227"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_trans.png" translatesAutoresizingMaskIntoConstraints="NO" id="or5-hC-T01">
-                                    <rect key="frame" x="142.66666666666666" y="122" width="128.99999999999997" height="119"/>
+                                    <rect key="frame" x="142.66666666666666" y="54" width="128.99999999999997" height="119"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="129" id="1T2-6U-EcO"/>
                                         <constraint firstAttribute="height" constant="119" id="LQO-tR-5Ux"/>
@@ -1528,22 +1528,21 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_icon.jpeg" width="146" height="98"/>
         <image name="logo_trans.png" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fbF-y0-dOl"/>
         <segue reference="8qG-DE-e4M"/>
-        <segue reference="IKj-uz-AgO"/>
+        <segue reference="K3Y-1A-ERI"/>
         <segue reference="YWi-Fd-5Fu"/>
         <segue reference="QbH-I5-ZYT"/>
-        <segue reference="MqZ-Fj-q4u"/>
+        <segue reference="eNj-LF-1aY"/>
         <segue reference="lzI-aV-Ir9"/>
         <segue reference="her-VS-u6T"/>
-        <segue reference="BXN-8K-oY2"/>
+        <segue reference="xdA-fn-Lbv"/>
         <segue reference="tSV-VX-PGX"/>
-        <segue reference="SJn-ML-ZMi"/>
+        <segue reference="4MF-tu-9aj"/>
         <segue reference="e8w-bm-gq4"/>
-        <segue reference="9L9-BO-aaU"/>
+        <segue reference="FLH-kV-EWs"/>
     </inferredMetricsTieBreakers>
 </document>

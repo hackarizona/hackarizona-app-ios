@@ -38,6 +38,8 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        // Actions when a row is pressed
         let rowPressed = indexPath.row
         let cellPressed = tableView.cellForRow(at: indexPath)
         let alert = UIAlertController(title: "Error", message: "Network request timed out. Please try again" , preferredStyle: .alert)
@@ -99,11 +101,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-      MARK: - Navigation
-     
-      In a storyboard-based application, you will often want to do a little preparation before navigation
- */
+    // Prepare for segues. This is where we pass variables to the next view controller.
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ScheduleFridaySegue" {
             let tempController = segue.destination as! UINavigationController
@@ -120,6 +118,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         }
      }
     
+    // Helper function
     private func passDataToUIController(vc: DisplayMasterSchedule){
         vc.daySelected = self.daySelected
         vc.eventType = self.eventType
@@ -133,6 +132,7 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         vc.first_description = self.first_description
     }
     
+    // Helper function
     private func eventDataHelper(day: String!, jsonfile: JSON!) {
         for index in 0...(jsonfile[day].count-1){
             self.eventType.append(jsonfile[day][index]["eventtype"].string!)
@@ -147,9 +147,10 @@ class ScheduleViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    // Get the event data from the schedule json file
     func getEventData() -> Void{
         // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 15)).validate().responseJSON()
         switch response.result {
         case .success(let value):
             let json = JSON(value)

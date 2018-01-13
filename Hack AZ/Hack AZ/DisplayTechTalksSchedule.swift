@@ -34,7 +34,7 @@ class DisplayTechTalksSchedule: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        // Display the tech talks
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "mainCell")
         if(talkSponsor[indexPath.row] == ""){
             cell.contentView.backgroundColor = UIColor.black
@@ -65,6 +65,7 @@ class DisplayTechTalksSchedule: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
+    // Display the description when cell is pressed
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row

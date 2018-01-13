@@ -26,6 +26,7 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
         return cellContent.count
     }
     
+    // Actions when cells are pressed
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
@@ -64,8 +65,8 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    // Cell setup
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "mainCell")
         cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor(red: CGFloat(86)/255.0, green: CGFloat(91)/255.0, blue: CGFloat(146)/255.0, alpha: 1.0)
@@ -85,12 +86,13 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
     
+    // Alert when "More" is pressed in nav to see if user wants to go the firstByte Website
     @objc func firstByteInfo(sender: UIBarButtonItem) {
-        let option = "Would you like to view the full more detailed schedule of firstByte?"
+        let option = "Would you like to view the full, more detailed schedule of firstByte?"
         let alert = UIAlertController(title: nil, message: option , preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-            if let url = URL(string: "https://first-byte.org/hackarizona#schedule"){
+            if let url = URL(string: "http://first-byte.org/hackarizona#schedule"){
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }))
@@ -102,10 +104,7 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
 
-    
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Segue prep for navigating to next view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "FirstByteFridaySegue" {
             let tempController = segue.destination as! UINavigationController
@@ -122,6 +121,7 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    // helper function
     private func eventDataHelper(day: String!, jsonfile: JSON!) {
         for index in 0...(jsonfile[day].count-1){
             self.workshop.append(jsonfile[day][index]["workshop"].string!)
@@ -131,9 +131,10 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    // Get the firstByte data from json
     func getEventData() -> Void{
         // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 5)).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 15)).validate().responseJSON()
         switch response.result {
         case .success(let value):
             let json = JSON(value)
@@ -148,6 +149,7 @@ class FirstByteViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
+    // helper function
     private func passDataToUIController(vc: DisplayFirstByteSchedule){
         vc.daySelected = self.daySelected
         vc.workshop = self.workshop

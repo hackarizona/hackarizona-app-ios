@@ -41,6 +41,7 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
         let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "mainCell")
         cell.contentView.backgroundColor = UIColor.black
         cell.textLabel?.textColor = UIColor.white
+        // Display data with unicode emojis
         if eventType[indexPath.row] == "required" {
             cell.textLabel?.text = "\u{1F335}" + "\t " +  eventTitle[indexPath.row]
             if eventSubTitle[indexPath.row] != "" {
@@ -95,6 +96,8 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         cell.detailTextLabel?.textColor = UIColor(red: CGFloat(75)/255.0, green: CGFloat(79)/255.0, blue: CGFloat(128)/255.0, alpha: 1.0)
+        
+        // adjust the font size based upon screen size
         if(screenWidth == iPhoneSE_Width && screenHeight == iPhoneSE_Height){
             cell.textLabel?.font = UIFont(name: "Arial", size:16.0)
             cell.detailTextLabel?.font = UIFont(name: "Arial", size:12.0)
@@ -106,6 +109,7 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    // Discription alert when cell is pressed
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let rowPressed = indexPath.row
@@ -132,6 +136,7 @@ class DisplayMasterSchedule: UIViewController, UITableViewDelegate, UITableViewD
         screenHeight = self.view.frame.height
     }
     
+    // Display the key when when "key" is pressed in nav bar
     @objc func emojiKey(sender: UIBarButtonItem) {
         let details = "\u{1F335}: General Event\n\u{1F4FA}: Live Stream\n\u{2615}: Breakfast\n\u{1F96A}: Lunch\n\u{1F32E}: Dinner\n\u{1F3C3}\u{200D}\u{2642}\u{FE0F}: Activity\n\u{1F468}\u{200D}\u{1F4BB}: Tech Talk\n\u{1F469}\u{200D}\u{1F3EB}: firstByte Workshop\n\nClick on an event to view a description"
         let alert = UIAlertController(title: "KEY", message: details , preferredStyle: .alert)

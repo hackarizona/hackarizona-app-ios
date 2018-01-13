@@ -40,7 +40,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     let iPhonePlus_Height: CGFloat = 736
     let iPhoneX_Width: CGFloat = 375
     let iPhoneX_Height: CGFloat = 812
-    
+    let iPad_Width: CGFloat = 320
+    let iPad_Height: CGFloat = 480
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         screenWidth = self.view.frame.width
         screenHeight = self.view.frame.height
         
+        // Create the size of the CollectionView based upon iPhone Screen size
+        // Alot of redundant code, definitely can be refactored - Cody
         if(screenWidth == iPhoneX_Width && screenHeight == iPhoneX_Height){
             flowLayout.minimumLineSpacing = 50.0
             let collectionView = UICollectionView(frame:  CGRect(x: 0, y: self.screenHeight * 0.28, width: self.screenWidth, height: screenHeight), collectionViewLayout: flowLayout)
@@ -75,6 +78,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }else if(screenWidth == iPhoneSE_Width && screenHeight == iPhoneSE_Height){
             flowLayout.minimumLineSpacing = 50.0
             let collectionView = UICollectionView(frame:  CGRect(x: 0, y: self.screenHeight * 0.32, width: self.screenWidth, height: screenHeight), collectionViewLayout: flowLayout)
+            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
+            collectionView.delegate = self
+            collectionView.dataSource = self
+            collectionView.backgroundColor = UIColor.clear
+            collectionView.contentSize = CGSize(width: 2, height: 6)
+            self.view.addSubview(collectionView)
+        }else if(screenWidth == iPad_Width && screenHeight == iPad_Height){
+            flowLayout.minimumLineSpacing = 40.0
+            let collectionView = UICollectionView(frame:  CGRect(x: 0, y: self.screenHeight * 0.37, width: self.screenWidth, height: screenHeight), collectionViewLayout: flowLayout)
             collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
             collectionView.delegate = self
             collectionView.dataSource = self
@@ -115,8 +127,16 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         imageview.image = image
         cell.contentView.addSubview(imageview)
         
+        // Adjust the button titles based upon iPhone screen
         if(screenWidth == iPhoneSE_Width && screenHeight == iPhoneSE_Height){
             let cellTitleLabel = UILabel(frame: CGRect(x: 0, y: 60, width: cellWidth, height: cellHeight))
+            cellTitleLabel.textAlignment = .center
+            cellTitleLabel.text = sections[indexPath.item]
+            cellTitleLabel.adjustsFontSizeToFitWidth = true
+            cellTitleLabel.textColor = UIColor.white
+            cell.contentView.addSubview(cellTitleLabel)
+        }else if(screenWidth == iPad_Width && screenHeight == iPad_Height){
+            let cellTitleLabel = UILabel(frame: CGRect(x: 0, y: 50, width: cellWidth, height: cellHeight))
             cellTitleLabel.textAlignment = .center
             cellTitleLabel.text = sections[indexPath.item]
             cellTitleLabel.adjustsFontSizeToFitWidth = true
@@ -142,6 +162,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             return CGSize(width: screenWidth / 2 - 30, height: 145 )
         }else if (screenWidth == iPhoneX_Width && screenHeight == iPhoneX_Height){
             return CGSize(width: screenWidth / 2 - 30, height: 130 )
+        }else if(screenWidth == iPad_Width && screenHeight == iPad_Height){
+            return CGSize(width: screenWidth / 2 - 65, height: 60 )
         }else{
             return CGSize(width: screenWidth / 2 - 30, height: 100 )
         }
@@ -167,6 +189,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         // Create the alert for if there is a network error
         let alert = UIAlertController(title: "Error", message: "Network request timed out. Please try again" , preferredStyle: .alert)
         
+        // Actions for when user selects a cell
         if(cellSelected == "schedule"){
             let controller = storyboard?.instantiateViewController(withIdentifier: "ScheduleController")
             self.present(controller!, animated: true)
@@ -220,13 +243,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    // Get the livestream link from the json files
    func getLiveStreamLink() -> Void{
-        // test link: https://www.youtube.com/watch?v=i23aUei_7ig
-        // actual link: https://www.youtube.com/watch?v=YXtyd1rkbkI
-    
         // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 15)).validate().responseJSON()
         switch response.result {
+            // SwiftyJSON makes it very easy to get data from json files
             case .success(let value):
                 let json = JSON(value)
                 if let link = json["livestream"][0]["link"].string {
@@ -242,23 +264,25 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    // Get the Mentor Hub link from the json files
     func getMentorHubLink() -> Void {
         // Make request with Alamofire
-        let response = Alamofire.request(URLRequest(url: url2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)).validate().responseJSON()
+        let response = Alamofire.request(URLRequest(url: url2, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 15)).validate().responseJSON()
         switch response.result {
-        case .success(let value):
-            let json = JSON(value)
-            if let link = json["mentorhub"][0]["link"].string {
-                self.mentorHubUrl = link
+            // SwiftyJSON makes it very easy to get data from json files
+            case .success(let value):
+                let json = JSON(value)
+                if let link = json["mentorhub"][0]["link"].string {
+                    self.mentorHubUrl = link
+                }
+                break
+            case .failure(let error):
+                print(error)
+                if error._code == NSURLErrorTimedOut || error._code == NSURLErrorNotConnectedToInternet {
+                    self.timedOut = true
+                }
+                break
             }
-            break
-        case .failure(let error):
-            print(error)
-            if error._code == NSURLErrorTimedOut || error._code == NSURLErrorNotConnectedToInternet {
-                self.timedOut = true
-            }
-            break
-        }
     }
     
 }
