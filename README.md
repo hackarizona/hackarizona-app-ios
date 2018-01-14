@@ -53,6 +53,11 @@ www.github.com/cdeeran
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
+Erika Kess - 
+Graphic Designer
+
+Thanks for backend and design advice:
+
 Jordan Singer - 
 www.github.com/jordansinger
 
