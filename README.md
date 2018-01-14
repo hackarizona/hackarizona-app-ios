@@ -1,14 +1,18 @@
 # Hack Arizona
 The largest Hackathon in the Southwest! 
-Hack AZ participants can now navigate all of the events much easier by way of having the schedule at the palm of their hands, access to maps of the venue to better navigate where sponsor tables are, notifications when each event starts, and much more!
-
+Hack AZ participants can now navigate all of the events much easier by way of:
+  * Having the schedule at the palm of their hands
+  * Access to maps of the venue to better navigate where sponsor tables are
+  * Push Notifications when each event starts
+  * Much more!
+  
 ## Notes
 
 Those who clone or fork the repo will need to:
 
-1. Remove the GoogleService-Info.plist
-2. Setup Firebase for the Push Notification Serivce
-3. Install Alamofire, Alamofire_Synchronous and SwiftyJSON using CocoaPods or user preference (See Built With below for links to these frameworks)
+  * Remove the GoogleService-Info.plist
+  * Setup Firebase for the Push Notification Serivce
+  * Install Alamofire, Alamofire_Synchronous and SwiftyJSON using CocoaPods or user preference (See Built With below for links to these frameworks)
 
 Optional:
 
@@ -46,15 +50,17 @@ This repo is meant to be forked by other organizations who need an app for their
 ## Authors
 
 Cody Deeran - 
+iOS Developer - 
 www.github.com/cdeeran
+
+Erika Kess - 
+Graphic Designer
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-Erika Kess - 
-Graphic Designer
 
 Thanks for backend and design advice:
 
