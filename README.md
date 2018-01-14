@@ -5,6 +5,7 @@ Hack AZ participants can now navigate all of the events much easier by way of ha
 ## Notes
 
 Those who clone or fork the repo will need to:
+
 1. Remove the GoogleService-Info.plist
 2. Setup Firebase for the Push Notification Serivce
 3. Install Alamofire, Alamofire_Synchronous and SwiftyJSON using CocoaPods or user preference (See Built With below for links to these frameworks)
@@ -44,16 +45,16 @@ This repo is meant to be forked by other organizations who need an app for their
 
 ## Authors
 
-Cody Deeran
-github.com/cdeeran
+Cody Deeran - 
+www.github.com/cdeeran
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
-Jordan Singer
-github.com/jordansinger
+Jordan Singer - 
+www.github.com/jordansinger
 
-Cooper Kunz
-github.com/Cooper-Kunz
+Cooper Kunz - 
+www.github.com/Cooper-Kunz
